@@ -5,7 +5,11 @@
   "projects": {
     "polymorFIT": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+            "style": "scss"
+          }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -25,7 +29,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/purple-green.css",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -87,12 +92,27 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/purple-green.css",
+              "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
