@@ -11,12 +11,16 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {ReactiveFormsModule} from "@angular/forms";
 import {LoginComponent} from "./main/login/login.component";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { HeaderComponent } from './main/header/header.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +31,8 @@ import {LoginComponent} from "./main/login/login.component";
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
+    MatToolbarModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
