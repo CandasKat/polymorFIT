@@ -11,10 +11,12 @@ import {SignupComponent} from "./signup/signup.component";
 export class MainComponent {
 constructor(private bottomSheet: MatBottomSheet) {
 }
+ // login form
   loginBottomSheet() {
     this.bottomSheet.open(LoginComponent);
   }
 
+  // signup form
   signupBottomSheet() {
     this.bottomSheet.open(SignupComponent);
   }
