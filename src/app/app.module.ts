@@ -18,10 +18,12 @@ import {HeaderComponent} from "./navigation/header/header.component";
 import { RoutingModule } from './routing/routing.module';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
-import {MatLineModule} from "@angular/material/core";
+import {MatLineModule, MatNativeDateModule} from "@angular/material/core";
 import {FlexLayoutModule, FlexModule} from "@angular/flex-layout";
 import {MatBottomSheetModule} from "@angular/material/bottom-sheet";
 import { SignupComponent } from './main/signup/signup.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -49,9 +51,13 @@ import { SignupComponent } from './main/signup/signup.component';
     MatLineModule,
     FlexModule,
     FlexLayoutModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
+
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
