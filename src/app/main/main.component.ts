@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {LoginComponent} from "./login/login.component";
 import {SignupComponent} from "./signup/signup.component";
+import {exerciceComponent} from "./exercice/exercice.component";
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
