@@ -20,6 +20,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {MatLineModule} from "@angular/material/core";
 import {FlexLayoutModule, FlexModule} from "@angular/flex-layout";
+import {MatBottomSheetModule} from "@angular/material/bottom-sheet";
+import { SignupComponent } from './main/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import {FlexLayoutModule, FlexModule} from "@angular/flex-layout";
     MainComponent,
     LoginComponent,
     HeaderComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import {FlexLayoutModule, FlexModule} from "@angular/flex-layout";
     MatListModule,
     MatLineModule,
     FlexModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatBottomSheetModule
   ],
   providers: [],
   bootstrap: [AppComponent]
