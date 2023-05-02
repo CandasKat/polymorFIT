@@ -1,0 +1,18 @@
+<div class="button-container">
+  <div class="login-button">
+    <button mat-fab extended color="primary">
+      {{button_name}}
+    </button>
+  </div>
+  <div class="divider-container">
+    <div class="divider-line"></div>
+    <span class="divider-text">or</span>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="google-button">
+    <button mat-fab extended id="google-signin-button" (click)="signInWithGoogle()">
+      <mat-icon>Google</mat-icon>
+      {{button_name}} with Google</button>
+  </div>
+</div>
