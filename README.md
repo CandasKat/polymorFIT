@@ -30,5 +30,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Json server
 
-Install JSON Server `npm install -g json-server`
+Install JSON Server `npm install -g json-server`  
 Run `json-server --watch db.json` to launch the fake database
