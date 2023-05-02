@@ -35,5 +35,4 @@ constructor(private bottomSheet: MatBottomSheet) {
   signupBottomSheet() {
     this.bottomSheet.open(SignupComponent);
   }
-
 }

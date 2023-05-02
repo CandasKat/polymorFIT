@@ -1,27 +1,53 @@
 .form-container{
   align-items: center;
-  width: 50%;
+  align-content: center;
+  width: 100%;
 }
 .form-container mat-form-field + mat-form-field {
   margin-left: 8px;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 5%;
+  border: red;
 }
 
-.email-right-align {
-  text-align: right;
+button{
+  width: 100%;
+}
+.button-container {
+  margin-bottom: 100px;
 }
 
-input.email-right-align::-webkit-outer-spin-button,
-input.email-right-align::-webkit-inner-spin-button {
-  display: none;
+.divider-container {
+  display: flex;
+  align-items: center;
+  margin: 0 8px;
 }
 
-input.email-right-align {
-  -moz-appearance: textfield;
+.divider-line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 0 8px;
 }
 
+.divider-text {
+  margin: 0 8px;
+}
 
-.login-button-row button,
-.login-button-row a {
-  margin-right: 8px;
+.login-title{
+  font-size: 30px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.login-button{
+  margin-bottom: 20px;
+}
+
+.google-button{
+  margin-top: 20px;
 }
 
