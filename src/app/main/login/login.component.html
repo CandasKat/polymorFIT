@@ -1,5 +1,9 @@
+  <h1 class="login-title">Log in</h1>
 
-    <mat-form-field appearance="fill">
+  <div>
+    <p><b>Your Email</b></p>
+
+    <mat-form-field appearance="fill" class="form-container">
     <mat-label>Email</mat-label>
     <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
     <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
@@ -9,8 +13,11 @@
       Email is <strong>required</strong>
     </mat-error>
   </mat-form-field>
+  </div>
 
-    <mat-form-field appearance="fill">
+  <div>
+    <p><b>Your Password</b></p>
+    <mat-form-field appearance="fill" class="form-container">
       <mat-label>Enter your password</mat-label>
       <input matInput [formControl]="passwordFormControl" [type]="hide ? 'password' : 'text'">
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -23,15 +30,25 @@
       Password is <strong>required</strong>
     </mat-error>
     </mat-form-field>
+  </div>
 <div>
+    <mat-checkbox>Remember me</mat-checkbox>
+</div>
+<div class="button-container">
+  <div class="login-button">
   <button mat-fab extended color="primary">
     Login
   </button>
-</div>
-    <div><mat-divider></mat-divider></div>
-    <div>
-  <button mat-fab extended color="primary">
-    Cancel
-  </button>
-    </div>
+  </div>
+  <div class="divider-container">
+    <div class="divider-line"></div>
+    <span class="divider-text">or</span>
+    <div class="divider-line"></div>
+  </div>
 
+  <div class="google-button">
+    <button mat-fab extended id="google-signin-button" (click)="signInWithGoogle()">
+    <mat-icon>Google</mat-icon>
+    Login with Google</button>
+  </div>
+</div>

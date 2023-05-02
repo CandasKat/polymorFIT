@@ -24,6 +24,8 @@ import {MatBottomSheetModule} from "@angular/material/bottom-sheet";
 import { SignupComponent } from './main/signup/signup.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatSelectModule} from "@angular/material/select";
+import {LogoutComponent} from "./main/logout/logout.component";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {MatSelectModule} from "@angular/material/select";
     LoginComponent,
     HeaderComponent,
     SidenavListComponent,
-    SignupComponent
+    SignupComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import {MatSelectModule} from "@angular/material/select";
     MatBottomSheetModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
 
   ],
   providers: [MatDatepickerModule],
