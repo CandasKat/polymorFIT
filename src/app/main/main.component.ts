@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
-import {LoginComponent} from "./login/login.component";
-import {SignupComponent} from "./signup/signup.component";
+import {MainBottomSheetComponent} from "./main-bottom-sheet/main-bottom-sheet.component";
+import {Subscriber} from "rxjs";
+
 
 @Component({
   selector: 'app-main',
@@ -9,16 +10,21 @@ import {SignupComponent} from "./signup/signup.component";
   styleUrls: ['./main.component.scss'],
 
 })
-export class MainComponent {
+export class MainComponent implements OnInit{
 constructor(private bottomSheet: MatBottomSheet) {
 }
- // login form
-  loginBottomSheet() {
-    this.bottomSheet.open(LoginComponent);
-  }
+ngOnInit() {
+  this.showBottomSheet()
+}
 
-  // signup form
-  signupBottomSheet() {
-    this.bottomSheet.open(SignupComponent);
-  }
+showBottomSheet(){
+  this.bottomSheet.open(MainBottomSheetComponent,
+    {
+      panelClass: 'custom-bottom-sheet',
+      hasBackdrop: false,
+      backdropClass: 'backdrop-custom',
+      disableClose: true
+    });
+}
+
 }
