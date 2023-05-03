@@ -27,7 +27,7 @@ export class LoginSignupButtonsComponent implements OnInit{
 
   attachSignIn(element: any) {
     this.auth2.attachClickHandler(element, {}, (googleUser: any) => {
-      console.log('Oturum açan kullanıcı:', googleUser);
+      console.log('User:', googleUser);
     }, (error: any) => {
       console.error('Login Error:', error);
     });
