@@ -26,6 +26,9 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatSelectModule} from "@angular/material/select";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { LoginSignupButtonsComponent } from './main/login-signup-buttons/login-signup-buttons.component';
+import { MainBottomSheetComponent } from './main/main-bottom-sheet/main-bottom-sheet.component';
+import { LoginBottomSheetComponent } from './main/login/login-bottom-sheet/login-bottom-sheet.component';
+import { SignupBottomsheetComponent } from './main/signup/signup-bottomsheet/signup-bottomsheet.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { LoginSignupButtonsComponent } from './main/login-signup-buttons/login-s
     HeaderComponent,
     SidenavListComponent,
     SignupComponent,
-    LoginSignupButtonsComponent
+    LoginSignupButtonsComponent,
+    MainBottomSheetComponent,
+    LoginBottomSheetComponent,
+    SignupBottomsheetComponent,
   ],
   imports: [
     BrowserModule,
