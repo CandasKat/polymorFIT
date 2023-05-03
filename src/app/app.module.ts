@@ -29,6 +29,8 @@ import { LoginSignupButtonsComponent } from './main/login-signup-buttons/login-s
 import { MainBottomSheetComponent } from './main/main-bottom-sheet/main-bottom-sheet.component';
 import { LoginBottomSheetComponent } from './main/login/login-bottom-sheet/login-bottom-sheet.component';
 import { SignupBottomsheetComponent } from './main/signup/signup-bottomsheet/signup-bottomsheet.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCarouselModule } from '@magloft/material-carousel';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { SignupBottomsheetComponent } from './main/signup/signup-bottomsheet/sig
     MainBottomSheetComponent,
     LoginBottomSheetComponent,
     SignupBottomsheetComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,10 @@ import { SignupBottomsheetComponent } from './main/signup/signup-bottomsheet/sig
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCarouselModule,
+    MatDividerModule,
+
 
   ],
   providers: [MatDatepickerModule],
