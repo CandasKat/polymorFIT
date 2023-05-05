@@ -2,13 +2,13 @@
   <mat-icon>close</mat-icon>
 </div>
   <h1 class="login-title">Log in</h1>
-
+<form action="" (ngSubmit)="onSubmit()" #loginForm="ngForm">
   <div>
     <p><b>Your Email</b></p>
 
     <mat-form-field appearance="fill" class="form-container">
     <mat-label>Email</mat-label>
-    <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+    <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com" >
     <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
       Please enter a valid email address
     </mat-error>
@@ -39,3 +39,4 @@
 </div>
 
   <div><app-login-signup-buttons [button_name]="'Login'"></app-login-signup-buttons></div>
+</form>

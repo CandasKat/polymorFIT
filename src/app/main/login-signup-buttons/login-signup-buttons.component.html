@@ -1,6 +1,6 @@
 <div class="button-container">
   <div class="login-button">
-    <button mat-fab extended color="primary">
+    <button mat-fab extended color="primary" type="submit">
       {{button_name}}
     </button>
   </div>
@@ -11,7 +11,7 @@
   </div>
 
   <div class="google-button">
-    <button mat-fab extended id="google-signin-button" (click)="signInWithGoogle()">
+    <button mat-fab extended id="google-signin-button" (click)="signInWithGoogle()" type="submit">
       <mat-icon>Google</mat-icon>
       {{button_name}} with Google</button>
   </div>

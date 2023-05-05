@@ -9,7 +9,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LoginComponent} from "./main/login/login.component";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatMenuModule} from "@angular/material/menu";
@@ -31,6 +31,7 @@ import { LoginBottomSheetComponent } from './main/login/login-bottom-sheet/login
 import { SignupBottomsheetComponent } from './main/signup/signup-bottomsheet/signup-bottomsheet.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCarouselModule } from '@magloft/material-carousel';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { MatCarouselModule } from '@magloft/material-carousel';
     MatCheckboxModule,
     MatCarouselModule,
     MatDividerModule,
-
+    HttpClientModule,
+    FormsModule
 
   ],
   providers: [MatDatepickerModule],
