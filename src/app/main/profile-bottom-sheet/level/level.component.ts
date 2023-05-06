@@ -24,7 +24,7 @@ export class LevelComponent {
 
     if (currentUser) {
       this.authService.updateUserProfile(currentUser.id, update).subscribe(
-        (updatedProfile) => {
+        () => {
           this.authService.bottomSheet.dismiss();
         },
         (error) => {

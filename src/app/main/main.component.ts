@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {MainBottomSheetComponent} from "./main-bottom-sheet/main-bottom-sheet.component";
-import {Subscriber} from "rxjs";
 import {AuthService} from "./auth.service";
 
 

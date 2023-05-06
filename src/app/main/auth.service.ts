@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, catchError, Observable, of, tap, throwError} from "rxjs";
+import {BehaviorSubject, catchError, Observable, of, tap} from "rxjs";
 import {ProfileBottomSheetComponent} from "./profile-bottom-sheet/profile-bottom-sheet.component";
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {UserProfile} from "../model/user.model";

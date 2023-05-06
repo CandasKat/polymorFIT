@@ -3,7 +3,6 @@ import {FormControl, FormGroup, ValidatorFn, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {SignupService} from "./signup.service";
 import {passwordMatchValidator} from "./validators";
-import {AuthService} from "../auth.service";
 
 @Component({
   selector: 'app-signup',
