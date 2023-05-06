@@ -5,6 +5,6 @@
 </div>
 
 <div *ngIf="authService.isLoggedIn$ | async">
-  <h1>Hello</h1>
+  <h1>Welcome, {{ (authService.currentUser$ | async)?.firstName }} {{ (authService.currentUser$ | async)?.lastName }}</h1>
 </div>
 

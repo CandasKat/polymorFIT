@@ -13,10 +13,11 @@ export class LoginService {
 
   login(mail: string, password: string): Observable<boolean> {
     return this.http.get<any[]>(`${this.apiUrl}?mail=${mail}&password=${password}`).pipe(
-      map(user => {
-        console.log('User:', user);
-        if (user.length > 0) {
+      map(users => {
+        if (users.length > 0) {
+          const user = users[0];
           this.authService.setLoggedInStatus(true);
+          this.authService.setCurrentUser({ firstName: user.first_name, lastName: user.last_name });
           return true;
         } else {
           return false;
