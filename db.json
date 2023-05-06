@@ -5,7 +5,35 @@
       "first_name": "Juan",
       "last_name": "Javier",
       "mail": "juan.javier@example.com",
-      "password": "1234"
+      "password": "1234",
+      "profile": {
+        "sex": "man",
+        "age": "19",
+        "weight": "86",
+        "height": "187",
+        "level": "beginner"
+      }
+    },
+    {
+      "id": 2,
+      "first_name": "candas",
+      "last_name": "kat",
+      "mail": "candas@example.com",
+      "password": "1234",
+      "profile": {
+        "level": "beginner",
+        "sex": "man",
+        "age": "31",
+        "weight": "82",
+        "height": "185"
+      }
+    },
+    {
+      "mail": "sevcan@example.com",
+      "password": "1234",
+      "first_name": "sevcan",
+      "last_name": "cinar",
+      "id": 3
     }
   ]
 }

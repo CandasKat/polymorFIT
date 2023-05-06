@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {catchError, Observable, of, tap} from "rxjs";
-
-interface User {
-  mail: string;
-  password: string;
-  first_name: string;
-  last_name: string;
-}
+import {AuthService} from "../auth.service";
+import {User, UserProfile} from "../../model/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +10,16 @@ interface User {
 export class SignupService {
   private readonly apiUrl = 'http://localhost:3000/users';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authService: AuthService) {
   }
 
-  signup(mail: string, password: string, first_name: string, last_name: string): Observable<User | null> {
+  signup(mail: string, password: string, first_name: string, last_name: string, profile: UserProfile | null): Observable<User | null> {
     const new_user: User = {
       mail,
       password,
       first_name,
       last_name,
+      profile
     };
 
     return this.http.post<User>(`${this.apiUrl}/`, new_user).pipe(
@@ -32,6 +28,13 @@ export class SignupService {
         // @ts-ignore
         if (user && user.id) {
           console.log("User added");
+          this.authService.setLoggedInStatus(true);
+          this.authService.setCurrentUser({
+            id: user.id,
+            firstName: user.first_name,
+            lastName: user.last_name,
+            profile: user.profile || null,
+          });
         }
         else {
           console.log("User not added");

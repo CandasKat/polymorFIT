@@ -17,7 +17,12 @@ export class LoginService {
         if (users.length > 0) {
           const user = users[0];
           this.authService.setLoggedInStatus(true);
-          this.authService.setCurrentUser({ firstName: user.first_name, lastName: user.last_name });
+          this.authService.setCurrentUser({
+            id: user.id,
+            firstName: user.first_name,
+            lastName: user.last_name,
+            profile: user.profile
+          });
           return true;
         } else {
           return false;

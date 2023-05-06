@@ -1,0 +1,10 @@
+<form action="" [formGroup]="levelForm" (ngSubmit)="onSubmit()" class="level-bottom-sheet">
+  <h1>How experienced are you in fitness?</h1>
+  <mat-radio-group formControlName="level">
+    <mat-radio-button value="beginner">Beginner</mat-radio-button>
+    <mat-radio-button value="intermediate">Intermediate</mat-radio-button>
+    <mat-radio-button value="experimented">Experimented</mat-radio-button>
+  </mat-radio-group>
+  <button mat-fab extended color="primary" type="submit" [disabled]="!levelForm.value">Continue</button>
+</form>
+

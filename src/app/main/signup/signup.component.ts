@@ -3,6 +3,7 @@ import {FormControl, FormGroup, ValidatorFn, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {SignupService} from "./signup.service";
 import {passwordMatchValidator} from "./validators";
+import {AuthService} from "../auth.service";
 
 @Component({
   selector: 'app-signup',
@@ -43,14 +44,15 @@ export class SignupComponent {
   }
   onSubmit(): void {
     this.signup.signup(
-    this.signupForm.get('email')?.value || '',
+    this.signupForm.get('mail')?.value || '',
     this.signupForm.get('password')?.value || '',
     this.signupForm.get('first_name')?.value || '',
-    this.signupForm.get('last_name')?.value || ''
-
+    this.signupForm.get('last_name')?.value || '',
+    null
   ).subscribe(result => {
         if (result) {
           console.log('Connection réussi');
+          this.router.navigate(["/home"]);
         } else {
           // Handle failed signup
         }

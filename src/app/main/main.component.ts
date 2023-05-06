@@ -20,7 +20,8 @@ export class MainComponent implements OnInit{
       this.isLoggedIn = loggedIn
     })
     if (this.isLoggedIn){
-      this.bottomSheet.dismiss()
+      this.bottomSheet.dismiss();
+      this.authService.checkUserProfile();
     }
     else {
       this.showBottomSheet()

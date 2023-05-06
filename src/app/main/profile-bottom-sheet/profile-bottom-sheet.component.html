@@ -1,0 +1,26 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profile-form">
+  <p>Hello {{ (authService.currentUser$ | async)?.firstName }} {{ (authService.currentUser$ | async)?.lastName }},
+    tell us more about you</p>
+  <mat-form-field appearance="fill" class="sex-container">
+    <mat-label>Sex</mat-label>
+    <mat-select formControlName="sex">
+      <mat-option *ngFor="let s of sex" [value]="s.value">
+        {{s.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="age-container">
+    <mat-label>Age</mat-label>
+    <input matInput type="text" formControlName="age">
+  </mat-form-field>
+  <mat-form-field class="weight-container">
+    <mat-label>Weight</mat-label>
+    <input matInput type="text" formControlName="weight">
+  </mat-form-field>
+  <mat-form-field class="height-container">
+    <mat-label>Height</mat-label>
+    <input matInput type="text" formControlName="height">
+  </mat-form-field>
+  <button mat-fab extended color="primary" type="submit" [disabled]="!profileForm.valid">Continue</button>
+</form>
+

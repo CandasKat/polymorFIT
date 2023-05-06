@@ -32,6 +32,9 @@ import { SignupBottomsheetComponent } from './main/signup/signup-bottomsheet/sig
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCarouselModule } from '@magloft/material-carousel';
 import {HttpClientModule} from "@angular/common/http";
+import { ProfileBottomSheetComponent } from './main/profile-bottom-sheet/profile-bottom-sheet.component';
+import { LevelComponent } from './main/profile-bottom-sheet/level/level.component';
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -45,6 +48,8 @@ import {HttpClientModule} from "@angular/common/http";
     MainBottomSheetComponent,
     LoginBottomSheetComponent,
     SignupBottomsheetComponent,
+    ProfileBottomSheetComponent,
+    LevelComponent,
 
   ],
   imports: [
@@ -72,7 +77,8 @@ import {HttpClientModule} from "@angular/common/http";
     MatCarouselModule,
     MatDividerModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatRadioModule,
 
   ],
   providers: [MatDatepickerModule],
