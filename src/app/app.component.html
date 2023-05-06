@@ -1,12 +1,14 @@
-<mat-sidenav-container>
-  <mat-sidenav #sidenav role="navigation" [@slideInOut]="sidenav.opened ? 'in' : 'out'">
-    <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="app-container">
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation" [@slideInOut]="sidenav.opened ? 'in' : 'out'">
+      <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 
-<app-main></app-main>
-<router-outlet></router-outlet>
-
+  <div class="app-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
