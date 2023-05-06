@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {FormControl, Validators} from "@angular/forms";
+import {FormControl, FormGroup, ValidatorFn, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {SignupService} from "./signup.service";
+import {passwordMatchValidator} from "./validators";
 
 @Component({
   selector: 'app-signup',
@@ -9,42 +10,56 @@ import {SignupService} from "./signup.service";
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
-  mail = "";
-  password = "";
-  first_name = "";
-  last_name = "";
+  signupForm = new FormGroup({
+    mail: new FormControl('', [Validators.required, Validators.email]),
+    first_name: new FormControl('', Validators.required),
+    last_name: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    confirmPassword: new FormControl('', Validators.required),
+  }, { validators: passwordMatchValidator });
+  isDisabled(): boolean {
+    return (!this.signupForm.valid || this.signupForm.errors?.['passwordsDoNotMatch']);
+  }
 
-  email = new FormControl('', [Validators.required, Validators.email]);
   hide: boolean = true;
-  passwordFormControl = new FormControl('', [Validators.required, Validators.required]);
+  hideConfirm: boolean = true;
   @Output() close = new EventEmitter();
   constructor(private router: Router, private signup: SignupService) {}
   cancel() {
     this.router.navigate(['/home']);
   }
   getErrorMessage() {
-    if (this.email.hasError('required')) {
+    const emailControl = this.signupForm.get('mail');
+
+    if (emailControl?.hasError('required')) {
       return 'You must enter a value';
     }
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    return emailControl?.hasError('mail') ? 'Not a valid email' : '';
   }
 
+  getFormControl(controlName: string): FormControl {
+    return this.signupForm.get(controlName) as FormControl;
+  }
   onSubmit(): void {
-    this.signup.signup(this.mail, this.password, this.first_name, this.last_name)
-      .subscribe(result => {
-    if (result) {
+    this.signup.signup(
+    this.signupForm.get('email')?.value || '',
+    this.signupForm.get('password')?.value || '',
+    this.signupForm.get('first_name')?.value || '',
+    this.signupForm.get('last_name')?.value || ''
 
-      console.log('Connection réussi');
-
-      } else {
-
-
-      }
-    } ,
-    error => {
-      console.error('Error:', error);
-    });
+  ).subscribe(result => {
+        if (result) {
+          console.log('Connection réussi');
+        } else {
+          // Handle failed signup
+        }
+      },
+      error => {
+        console.error('Error:', error);
+      });
   }
 
+
+  protected readonly FormControl = FormControl;
 }

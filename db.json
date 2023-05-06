@@ -1,9 +1,46 @@
 {
-  "user": {
-    "id": 1,
-    "first_name": "Juan",
-    "last_name": "Javier",
-    "mail": "juan.javier@example.com",
-    "password": "1234"
-  }
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Juan",
+      "last_name": "Javier",
+      "mail": "juan.javier@example.com",
+      "password": "1234"
+    },
+    {
+      "mail": "candas@gmail.com",
+      "password": "1234",
+      "first_name": "candas",
+      "last_name": "kat",
+      "id": 2
+    },
+    {
+      "mail": "ali@gmail.com",
+      "password": "1234",
+      "first_name": "ali",
+      "last_name": "veli",
+      "id": 3
+    },
+    {
+      "mail": "",
+      "password": "1234",
+      "first_name": "edgar",
+      "last_name": "alves",
+      "id": 4
+    },
+    {
+      "mail": "",
+      "password": "",
+      "first_name": "",
+      "last_name": "",
+      "id": 5
+    },
+    {
+      "mail": "",
+      "password": "",
+      "first_name": "",
+      "last_name": "",
+      "id": 6
+    }
+  ]
 }

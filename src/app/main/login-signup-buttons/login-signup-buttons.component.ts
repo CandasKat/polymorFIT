@@ -9,6 +9,7 @@ declare const gapi: any;
 })
 export class LoginSignupButtonsComponent implements OnInit{
   @Input() button_name="";
+  @Input() isDisabled = true;
   private auth2: any;
   ngOnInit() {
     this.loadGoogleAuthApi();

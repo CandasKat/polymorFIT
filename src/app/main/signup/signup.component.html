@@ -5,43 +5,54 @@
 <h1 class="signup-title"><b>Sign Up</b></h1>
 
 <div>
-  <form action="" class="signup-form" (ngSubmit)="onSubmit()">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
     <p>Your Email</p>
     <mat-form-field appearance="fill"  class="email-container">
       <mat-label>Enter your email</mat-label>
-      <input matInput placeholder="pat@example.com" [formControl]="email" required [(ngModel)]="mail">
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      <input matInput placeholder="pat@example.com" formControlName="mail" required>
+      <mat-error *ngIf="signupForm.get('mail')?.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <div>
       <p>Your First Name</p>
       <mat-form-field class="name-input">
         <mat-label>First name</mat-label>
-        <input matInput placeholder="First name" [(ngModel)]="first_name" name="first_name">
+        <input matInput placeholder="First name" formControlName="first_name">
       </mat-form-field>
       <p>Your Last Name</p>
       <mat-form-field class="name-input">
         <mat-label>Last name</mat-label>
-        <input matInput placeholder="Last name" [(ngModel)]="last_name" name="last_name">
+        <input matInput placeholder="Last name" formControlName="last_name">
       </mat-form-field>
     </div>
     <div>
       <p>Your Password</p>
+      <!-- Your Password -->
       <mat-form-field appearance="fill" class="password-container">
         <mat-label>Enter your password</mat-label>
-        <input matInput [formControl]="passwordFormControl" [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
-        <!-- ... -->
+        <input matInput [formControl]="getFormControl('password')" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
       </mat-form-field>
-      <p>Re-enter Your Password</p>
+      <p>Confirm Your Password</p>
       <mat-form-field appearance="fill" class="password-container">
         <mat-label>Enter your password</mat-label>
-        <input matInput [formControl]="passwordFormControl" [type]="hide ? 'password' : 'text'">
-        <!-- ... -->
+        <input matInput [formControl]="getFormControl('confirmPassword')" [type]="hideConfirm ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirm">
+          <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
       </mat-form-field>
+
+      <div class="error" *ngIf="signupForm.errors && signupForm.errors['passwordsDoNotMatch']">
+        Passwords do not match
+      </div>
     </div>
 
     <div>
-      <app-login-signup-buttons [button_name]="'Sign up'"></app-login-signup-buttons>
+      <app-login-signup-buttons [button_name]="'Sign up'"
+                                [isDisabled]="isDisabled()">>
+      ></app-login-signup-buttons>
     </div>
   </form>
 </div>
