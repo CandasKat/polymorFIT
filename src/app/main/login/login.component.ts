@@ -9,8 +9,8 @@ import {LoginService} from "./login.service";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent{
-  private mail = "";
-  private password = "";
+  mail = "";
+  password = "";
   hide: boolean = true;
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required, Validators.required]);
@@ -23,7 +23,7 @@ export class LoginComponent{
     this.loginService.login(this.mail, this.password).subscribe(result => {
     if (result) {
 
-      console.log('Connection réussi');
+      console.log(result);
 
       } else {
 
