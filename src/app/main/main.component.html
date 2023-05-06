@@ -1,1 +1,10 @@
+<div *ngIf="(authService.isLoggedIn$ | async) === false">
+
+  <!-- EDGAR TU METS TON CARROUSEL ICI!!!!! -->
+
+</div>
+
+<div *ngIf="authService.isLoggedIn$ | async">
+  <h1>Hello</h1>
+</div>
 

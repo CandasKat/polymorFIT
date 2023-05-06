@@ -24,7 +24,7 @@ export class LoginComponent{
     if (result) {
 
       console.log(result);
-
+      this.router.navigate(["/home"]);
       } else {
 
 

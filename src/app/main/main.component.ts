@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {MainBottomSheetComponent} from "./main-bottom-sheet/main-bottom-sheet.component";
 import {Subscriber} from "rxjs";
+import {AuthService} from "./auth.service";
 
 
 @Component({
@@ -11,14 +12,23 @@ import {Subscriber} from "rxjs";
 
 })
 export class MainComponent implements OnInit{
-constructor(private bottomSheet: MatBottomSheet) {
-}
-ngOnInit() {
-  this.showBottomSheet()
-}
+    isLoggedIn: boolean = false;
+  constructor(private bottomSheet: MatBottomSheet, public authService: AuthService) {
+  }
+  ngOnInit() {
+    this.authService.isLoggedIn$.subscribe(loggedIn => {
+      this.isLoggedIn = loggedIn
+    })
+    if (this.isLoggedIn){
+      this.bottomSheet.dismiss()
+    }
+    else {
+      this.showBottomSheet()
+    }
+  }
 
-showBottomSheet(){
-  this.bottomSheet.open(MainBottomSheetComponent,
+  showBottomSheet(){
+    this.bottomSheet.open(MainBottomSheetComponent,
     {
       panelClass: 'custom-bottom-sheet',
       hasBackdrop: false,
