@@ -35,6 +35,11 @@ import {HttpClientModule} from "@angular/common/http";
 import { ProfileBottomSheetComponent } from './main/profile-bottom-sheet/profile-bottom-sheet.component';
 import { LevelComponent } from './main/profile-bottom-sheet/level/level.component';
 import {MatRadioModule} from "@angular/material/radio";
+import {
+  GoogleLoginProvider, GoogleSigninButtonModule,
+  SocialAuthServiceConfig,
+  SocialLoginModule
+} from "@abacritt/angularx-social-login";
 
 @NgModule({
   declarations: [
@@ -79,9 +84,29 @@ import {MatRadioModule} from "@angular/material/radio";
     HttpClientModule,
     FormsModule,
     MatRadioModule,
+    SocialLoginModule,
+    GoogleSigninButtonModule
 
   ],
-  providers: [MatDatepickerModule],
+  providers: [MatDatepickerModule,
+  {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '724653378617-00kp4ave75skimric5bvqn3o3rr66pto.apps.googleusercontent.com'
+            )
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

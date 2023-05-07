@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-
-declare const gapi: any;
+import {AuthService} from "../auth.service";
+import {Router} from "@angular/router";
+import {SocialAuthService} from "@abacritt/angularx-social-login";
 
 @Component({
   selector: 'app-login-signup-buttons',
@@ -10,31 +11,58 @@ declare const gapi: any;
 export class LoginSignupButtonsComponent implements OnInit{
   @Input() button_name="";
   @Input() isDisabled = true;
-  private auth2: any;
-  ngOnInit() {
-    this.loadGoogleAuthApi();
-  }
 
-  loadGoogleAuthApi() {
-    gapi.load('auth2', () => {
-      this.auth2 = gapi.auth2.init({
-        client_id: '724653378617-00kp4ave75skimric5bvqn3o3rr66pto.apps.googleusercontent.com',
-        cookiepolicy: 'single_host_origin'
-      });
+  constructor(private socialAuthService: SocialAuthService,  private authService: AuthService,
+              private router: Router) { }
 
-      this.attachSignIn(document.getElementById('google-signin-button'));
+  ngOnInit(): void {
+    this.socialAuthService.authState.subscribe((user) => {
+      if (user) {
+        console.log(user)
+        this.onSignIn(user);
+        this.router.navigate(["/home"]);
+      } else {
+        this.authService.setLoggedInStatus(false);
+        // @ts-ignore
+        this.authService.setCurrentUser(null);
+      }
     });
   }
 
-  attachSignIn(element: any) {
-    this.auth2.attachClickHandler(element, {}, (googleUser: any) => {
-      console.log('User:', googleUser);
-    }, (error: any) => {
-      console.error('Login Error:', error);
-    });
-  }
+  // @ts-ignore
+  onSignIn(googleUser): void {
+    const id_token = googleUser.idToken;
+    console.log("User ID Token:", id_token);
+    const userId = parseInt(googleUser.id);
+    const firstName = googleUser.firstName;
+    const lastName = googleUser.lastName;
+    const email = googleUser.email;
+    const user = {
+      id: userId,
+      firstName: firstName,
+      lastName: lastName,
+      mail: email,
+      profile: null,
+    };
 
-  signInWithGoogle(): void {
-    // Bu fonksiyonun içeriği şu anda boş, çünkü oturum açma işlemi `attachSignIn` ile başlatılıyor.
+    this.authService.findUserByEmail(email).subscribe((existingUser) => {
+      if (existingUser) {
+        this.authService.setLoggedInStatus(true);
+        // @ts-ignore
+        this.authService.setCurrentUser({...user, profile: existingUser.profile});
+        this.authService.checkUserProfile();
+      } else {
+        // @ts-ignore
+        this.authService.registerGoogleUser(user).subscribe((registeredUser) => {
+          if (registeredUser) {
+            this.authService.setLoggedInStatus(true);
+            this.authService.setCurrentUser(user);
+            this.authService.checkUserProfile();
+          } else {
+            console.error("Error registering the Google user");
+          }
+        });
+      }
+    });
   }
 }

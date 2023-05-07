@@ -33,7 +33,14 @@
       "password": "1234",
       "first_name": "sevcan",
       "last_name": "cinar",
-      "id": 3
+      "id": 3,
+      "profile": {
+        "sex": "woman",
+        "age": "29",
+        "weight": "155",
+        "height": "60",
+        "level": "beginner"
+      }
     }
   ]
 }

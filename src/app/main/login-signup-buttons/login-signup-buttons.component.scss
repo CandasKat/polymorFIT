@@ -1,5 +1,5 @@
 button{
-  width: 100%;
+  width: 86%;
 }
 .button-container {
   margin-bottom: 100px;
@@ -29,11 +29,10 @@ button{
   margin-bottom: 30px;
 }
 
-.login-button{
+.login-button, .google-button{
   margin-top: 20px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-.google-button{
-  margin-top: 20px;
-}

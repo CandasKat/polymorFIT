@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, catchError, Observable, of, tap} from "rxjs";
+import {BehaviorSubject, catchError, map, Observable, of, tap} from "rxjs";
 import {ProfileBottomSheetComponent} from "./profile-bottom-sheet/profile-bottom-sheet.component";
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
-import {UserProfile} from "../model/user.model";
+import {User, UserProfile} from "../model/user.model";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
@@ -84,6 +84,29 @@ export class AuthService {
     );
   }
 
+  // auth.service.ts
+  registerGoogleUser(user: {
+    id: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    profile: UserProfile | null;
+  }): Observable<User | null> {
+    return this.http.post<User>(`${this.apiUrl}/`, user).pipe(
+      catchError(() => {
+        return of(null);
+      })
+    );
+  }
+
+  findUserByEmail(email: string): Observable<User | null> {
+    return this.http.get<User[]>(`${this.apiUrl}?mail=${email}`).pipe(
+      map((users) => (users.length > 0 ? users[0] : null)),
+      catchError(() => {
+        return of(null);
+      })
+    );
+  }
 
 
 }

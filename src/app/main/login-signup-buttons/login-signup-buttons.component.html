@@ -10,9 +10,9 @@
     <div class="divider-line"></div>
   </div>
 
-  <div class="google-button">
-    <button mat-fab extended id="google-signin-button" (click)="signInWithGoogle()" type="submit">
-      <mat-icon>Google</mat-icon>
-      {{button_name}} with Google</button>
+  <div class="google-button" >
+  <asl-google-signin-button type='standard' size='large'
+  shape="pill" text="continue_with" theme="filled_blue" logo_alignment="left" width="400"
+  ></asl-google-signin-button>
   </div>
 </div>

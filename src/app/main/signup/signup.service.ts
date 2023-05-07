@@ -13,14 +13,24 @@ export class SignupService {
   constructor(private http: HttpClient, private authService: AuthService) {
   }
 
-  signup(mail: string, password: string, first_name: string, last_name: string, profile: UserProfile | null): Observable<User | null> {
+  signup(
+    mail: string,
+    password: string,
+    first_name: string,
+    last_name: string,
+    profile: UserProfile | null,
+    googleUser: boolean = false
+  ): Observable<User | null> {
     const new_user: User = {
       mail,
       password,
       first_name,
       last_name,
-      profile
+      profile,
     };
+    if (googleUser) {
+      delete new_user.password;
+    }
 
     return this.http.post<User>(`${this.apiUrl}/`, new_user).pipe(
       tap(user => {
