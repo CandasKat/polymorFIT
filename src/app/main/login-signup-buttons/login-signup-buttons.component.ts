@@ -18,12 +18,10 @@ export class LoginSignupButtonsComponent implements OnInit{
   ngOnInit(): void {
     this.socialAuthService.authState.subscribe((user) => {
       if (user) {
-        console.log(user)
         this.onSignIn(user);
         this.router.navigate(["/home"]);
       } else {
         this.authService.setLoggedInStatus(false);
-        // @ts-ignore
         this.authService.setCurrentUser(null);
       }
     });
@@ -31,14 +29,11 @@ export class LoginSignupButtonsComponent implements OnInit{
 
   // @ts-ignore
   onSignIn(googleUser): void {
-    const id_token = googleUser.idToken;
-    console.log("User ID Token:", id_token);
-    const userId = parseInt(googleUser.id);
     const firstName = googleUser.firstName;
     const lastName = googleUser.lastName;
     const email = googleUser.email;
     const user = {
-      id: userId,
+      id: null,
       firstName: firstName,
       lastName: lastName,
       mail: email,
@@ -56,7 +51,8 @@ export class LoginSignupButtonsComponent implements OnInit{
         this.authService.registerGoogleUser(user).subscribe((registeredUser) => {
           if (registeredUser) {
             this.authService.setLoggedInStatus(true);
-            this.authService.setCurrentUser(user);
+            // @ts-ignore
+            this.authService.setCurrentUser({...user, id: registeredUser.id}); // <-- id değerini burada ayarlayın
             this.authService.checkUserProfile();
           } else {
             console.error("Error registering the Google user");

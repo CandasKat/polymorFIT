@@ -11,9 +11,8 @@ export class SignupBottomsheetComponent implements AfterViewInit{
 
   constructor(private bottomSheet: MatBottomSheet) {
   }
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.bottomSheet.open(SignupComponent, { disableClose: true });
-    });
+  async ngAfterViewInit() {
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    this.bottomSheet.open(SignupComponent, { disableClose: true });
   }
 }

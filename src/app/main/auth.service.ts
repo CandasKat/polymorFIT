@@ -4,6 +4,7 @@ import {ProfileBottomSheetComponent} from "./profile-bottom-sheet/profile-bottom
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {User, UserProfile} from "../model/user.model";
 import {HttpClient} from "@angular/common/http";
+import {SocialAuthService} from "@abacritt/angularx-social-login";
 
 @Injectable({
   providedIn: 'root'
@@ -13,19 +14,32 @@ export class AuthService {
 
   private currentUserProfileSubject = new BehaviorSubject<UserProfile | null>(null);
   currentUserProfile$ = this.currentUserProfileSubject.asObservable();
-  private currentUserSubject = new BehaviorSubject<{ id: number, firstName: string; lastName: string, profile: UserProfile | null } | null>(null);  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  private currentUserSubject = new BehaviorSubject<{
+    id: number,firstName: string; lastName: string, profile: UserProfile | null
+  } | null>(null);
+
   currentUser$ = this.currentUserSubject.asObservable()
+  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
-  constructor(public bottomSheet: MatBottomSheet, private http: HttpClient) { }
+  constructor(private socialAuthService: SocialAuthService,
+              public bottomSheet: MatBottomSheet,
+              private http: HttpClient) { }
 
   setLoggedInStatus(status: boolean){
     this.isLoggedInSubject.next(status);
   }
 
-  setCurrentUser(user: { id: number, firstName: string; lastName: string; profile: UserProfile | null }): void {
-    this.currentUserSubject.next(user);
-    this.currentUserProfileSubject.next(user.profile);
+  setCurrentUser(user: { id?: number, firstName: string; lastName: string; profile: UserProfile | null } | null): void {
+    if (user) {
+      // @ts-ignore
+      this.currentUserSubject.next(user);
+      this.currentUserProfileSubject.next(user.profile);
+    } else {
+      this.currentUserSubject.next(null);
+      // this.currentUserProfileSubject.next(null);
+    }
   }
+
 
   getCurrentUser(): { id: number, firstName: string; lastName: string, profile: UserProfile | null } | null {
     return this.currentUserSubject.value;
@@ -33,7 +47,8 @@ export class AuthService {
 
 
   checkUserProfile() {
-  this.currentUserProfile$.subscribe((profile) => {
+  // @ts-ignore
+    this.currentUserProfile$.subscribe((profile) => {
     if (!this.isProfileComplete(profile)) {
       this.showProfileBottomSheet();
     }
@@ -84,20 +99,29 @@ export class AuthService {
     );
   }
 
-  // auth.service.ts
   registerGoogleUser(user: {
-    id: number;
+    id: null;
     firstName: string;
     lastName: string;
-    email: string;
+    mail: string;
     profile: UserProfile | null;
   }): Observable<User | null> {
-    return this.http.post<User>(`${this.apiUrl}/`, user).pipe(
+    const newUser: User = {
+      id: null,
+      mail: user.mail,
+      password: null,
+      first_name: user.firstName,
+      last_name: user.lastName,
+      profile: user.profile,
+    };
+
+    return this.http.post<User>(`${this.apiUrl}/`, newUser).pipe(
       catchError(() => {
         return of(null);
       })
     );
   }
+
 
   findUserByEmail(email: string): Observable<User | null> {
     return this.http.get<User[]>(`${this.apiUrl}?mail=${email}`).pipe(
@@ -107,6 +131,11 @@ export class AuthService {
       })
     );
   }
-
+  logout(): void {
+    this.setLoggedInStatus(false);
+    // @ts-ignore
+    this.setCurrentUser(null);
+    this.socialAuthService.signOut();
+  }
 
 }

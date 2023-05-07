@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy} from '@angular/core';
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {MainBottomSheetComponent} from "./main-bottom-sheet/main-bottom-sheet.component";
 import {AuthService} from "./auth.service";
+import {Subscription} from "rxjs";
 
 
 @Component({
@@ -10,20 +11,29 @@ import {AuthService} from "./auth.service";
   styleUrls: ['./main.component.scss'],
 
 })
-export class MainComponent implements OnInit{
-    isLoggedIn: boolean = false;
+export class MainComponent implements AfterViewInit, OnDestroy{
+   isLoggedIn: boolean = false;
+   // @ts-ignore
+  private isLoggedInSubscription: Subscription;
   constructor(private bottomSheet: MatBottomSheet, public authService: AuthService) {
   }
-  ngOnInit() {
-    this.authService.isLoggedIn$.subscribe(loggedIn => {
+  async ngAfterViewInit() {
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    this.isLoggedInSubscription = this.authService.isLoggedIn$.subscribe(loggedIn => {
       this.isLoggedIn = loggedIn
-    })
+
     if (this.isLoggedIn){
       this.bottomSheet.dismiss();
       this.authService.checkUserProfile();
     }
     else {
       this.showBottomSheet()
+    }});
+  }
+
+  ngOnDestroy(): void {
+    if (this.isLoggedInSubscription) {
+      this.isLoggedInSubscription.unsubscribe();
     }
   }
 

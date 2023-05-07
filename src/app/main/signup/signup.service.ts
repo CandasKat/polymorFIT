@@ -22,6 +22,7 @@ export class SignupService {
     googleUser: boolean = false
   ): Observable<User | null> {
     const new_user: User = {
+      id: null,
       mail,
       password,
       first_name,
@@ -35,7 +36,6 @@ export class SignupService {
     return this.http.post<User>(`${this.apiUrl}/`, new_user).pipe(
       tap(user => {
         console.log('User:', user);
-        // @ts-ignore
         if (user && user.id) {
           console.log("User added");
           this.authService.setLoggedInStatus(true);

@@ -2,20 +2,24 @@
   <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
     <mat-icon>home</mat-icon><span class="nav-caption">Home</span>
   </a>
-  <a mat-list-item routerLink="/login" (click)="onSidenavClose()">
-    <mat-icon>login</mat-icon><span class="nav-caption">Login</span>
-  </a>
-  <a mat-list-item routerLink="/signup" (click)="onSidenavClose()">
-    <mat-icon>account_circle</mat-icon><span class="nav-caption">Sign up</span>
-  </a>
+  <ng-container>
+    <div *ngIf="isLoggedIn">
+      <a mat-list-item routerLink="/signup" (click)="onSidenavClose()">
+        <mat-icon>fitness_center</mat-icon><span class="nav-caption">Workout</span>
+      </a>
+      <a mat-list-item (click)="logout(); onSidenavClose()">
+        <mat-icon>logout</mat-icon><span class="nav-caption">Logout</span>
+      </a>
+    </div>
+    <div *ngIf="!isLoggedIn">
+      <a mat-list-item routerLink="/login" (click)="onSidenavClose()">
+        <mat-icon>login</mat-icon><span class="nav-caption">Login</span>
+      </a>
+      <a mat-list-item routerLink="/signup" (click)="onSidenavClose()">
+        <mat-icon>account_circle</mat-icon><span class="nav-caption">Sign up</span>
+      </a>
+    </div>
+  </ng-container>
 
-  <mat-list-item [mat-menu-trigger-for]="menu">
-    <mat-icon>unfold_more</mat-icon>
-    <a mat-line>Example</a>
-  </mat-list-item>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="onSidenavClose()">View Profile</button>
-    <button mat-menu-item (click)="onSidenavClose()">Add Contact</button>
 
-  </mat-menu>
 </mat-nav-list>
