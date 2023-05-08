@@ -27,6 +27,20 @@
         "height": "185",
         "level": "beginner"
       }
+    },
+    {
+      "id": 3,
+      "first_name": "Ezra",
+      "last_name": "Mosimann",
+      "mail": "test@test.com",
+      "password": "1234",
+      "profile": {
+        "sex": "man",
+        "age": "19",
+        "weight": "71",
+        "height": "175",
+        "level": "beginner"
+      }
     }
   ]
 }
