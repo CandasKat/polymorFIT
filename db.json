@@ -30,15 +30,15 @@
     },
     {
       "id": 3,
-      "first_name": "Ezra",
-      "last_name": "Mosimann",
-      "mail": "test@test.com",
+      "first_name": "test",
+      "last_name": "tester",
+      "mail": "tester@test.com",
       "password": "1234",
       "profile": {
         "sex": "man",
-        "age": "19",
-        "weight": "71",
-        "height": "175",
+        "age": "1",
+        "weight": "2",
+        "height": "3",
         "level": "beginner"
       }
     }
