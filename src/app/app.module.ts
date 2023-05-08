@@ -40,6 +40,8 @@ import {
   SocialAuthServiceConfig,
   SocialLoginModule
 } from "@abacritt/angularx-social-login";
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import {
     SignupBottomsheetComponent,
     ProfileBottomSheetComponent,
     LevelComponent,
+    AboutusComponent,
+    ContactComponent,
 
   ],
   imports: [
