@@ -7,15 +7,17 @@ import {SignupBottomsheetComponent} from "../main/signup/signup-bottomsheet/sign
 import {ExerciceComponent} from "../exercice/exercice.component";
 import {ContactComponent} from "../contact/contact.component";
 import {AboutusComponent} from "../aboutus/aboutus.component";
+import {ExercicePlayComponent} from "../exercice/exercice-play/exercice-play.component";
 
 const routes: Routes = [
   { path: "home", component: MainComponent},
   {path: "", redirectTo: "/home", pathMatch: "full"},
   { path: 'login', component: LoginBottomSheetComponent },
   { path: 'signup', component: SignupBottomsheetComponent },
-  { path: 'workout', component: ExerciceComponent},
-  {path: 'aboutus', component: AboutusComponent},
-  {path:'contact', component: ContactComponent}
+  { path: 'workout', component: ExerciceComponent },
+  { path: 'aboutus', component: AboutusComponent },
+  { path:'contact', component: ContactComponent },
+  { path:'play', component: ExercicePlayComponent },
 ]
 
 @NgModule({

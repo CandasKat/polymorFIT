@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-title>{{ currentExercise.name }}</mat-card-title>
+  <mat-card-content>
+    <img [src]="currentExercise.gifUrl" alt="{{currentExercise.name}}">
+    <p>Repetitions: {{ currentExercise.repetition }}</p>
+    <p>Time: {{ currentExercise.time }}</p>
+    <p>Target: {{ currentExercise.target }}</p>
+    <p>Elapsed time: {{ formatTime(elapsedTime) }}</p>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button (click)="previousExercise()"><mat-icon>skip_previous</mat-icon></button>
+    <button mat-icon-button (click)="isPlaying ? pauseExercise() : playExercise()">
+      <mat-icon>{{ isPlaying ? 'pause' : 'play_arrow' }}</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="nextExercise()"><mat-icon>skip_next</mat-icon></button>
+  </mat-card-actions>
+</mat-card>

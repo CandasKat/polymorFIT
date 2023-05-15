@@ -1,0 +1,26 @@
+<div *ngIf="!selectedExerciseType">
+  <div *ngFor="let type of typeExercices" (click)="getExercicesWithNoEquipement(type.value)">
+<mat-card>
+  <mat-card-title>{{ type.viewValue }}</mat-card-title>
+  <mat-card-content>Click to view exercises</mat-card-content>
+</mat-card>
+  </div>
+</div>
+
+
+<div [ngSwitch]="selectedExerciseType">
+  <div *ngSwitchCase="null">Please select an exercise type.</div>
+  <div *ngSwitchDefault>
+    <div *ngFor="let exercise of exercicesList">
+    <mat-card>
+      <mat-card-title>{{ exercise.name }}</mat-card-title>
+      <mat-card-content>
+        <p>Repetitions: {{ exercise.repetition }}</p>
+        <p>Time: {{ exercise.time }}</p>
+      </mat-card-content>
+    </mat-card>
+    </div>
+    <button mat-icon-button (click)="startExercice()"><mat-icon>play_arrow</mat-icon></button>
+
+  </div>
+</div>

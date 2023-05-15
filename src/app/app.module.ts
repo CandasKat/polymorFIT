@@ -40,8 +40,12 @@ import {
   SocialAuthServiceConfig,
   SocialLoginModule
 } from "@abacritt/angularx-social-login";
+import {ExerciceComponent} from "./exercice/exercice.component";
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactComponent } from './contact/contact.component';
+import { ExercicePlayComponent } from './exercice/exercice-play/exercice-play.component';
+import { ExerciceSummaryDialogComponent } from './exercice/exercice-summary-dialog/exercice-summary-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -57,41 +61,45 @@ import { ContactComponent } from './contact/contact.component';
     SignupBottomsheetComponent,
     ProfileBottomSheetComponent,
     LevelComponent,
+    ExerciceComponent,
     AboutusComponent,
     ContactComponent,
+    ExercicePlayComponent,
+    ExerciceSummaryDialogComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    MatToolbarModule,
-    MatMenuModule,
-    RoutingModule,
-    MatSidenavModule,
-    MatListModule,
-    MatLineModule,
-    FlexModule,
-    FlexLayoutModule,
-    MatBottomSheetModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSelectModule,
-    MatCheckboxModule,
-    MatCarouselModule,
-    MatDividerModule,
-    HttpClientModule,
-    FormsModule,
-    MatRadioModule,
-    SocialLoginModule,
-    GoogleSigninButtonModule
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        MatToolbarModule,
+        MatMenuModule,
+        RoutingModule,
+        MatSidenavModule,
+        MatListModule,
+        MatLineModule,
+        FlexModule,
+        FlexLayoutModule,
+        MatBottomSheetModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSelectModule,
+        MatCheckboxModule,
+        MatCarouselModule,
+        MatDividerModule,
+        HttpClientModule,
+        FormsModule,
+        MatRadioModule,
+        SocialLoginModule,
+        GoogleSigninButtonModule,
+        MatDialogModule
 
-  ],
+    ],
   providers: [MatDatepickerModule,
   {
       provide: 'SocialAuthServiceConfig',

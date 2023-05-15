@@ -52,7 +52,7 @@ export class LoginSignupButtonsComponent implements OnInit{
           if (registeredUser) {
             this.authService.setLoggedInStatus(true);
             // @ts-ignore
-            this.authService.setCurrentUser({...user, id: registeredUser.id}); // <-- id değerini burada ayarlayın
+            this.authService.setCurrentUser({...user, id: registeredUser.id});
             this.authService.checkUserProfile();
           } else {
             console.error("Error registering the Google user");

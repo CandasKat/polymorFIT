@@ -8,7 +8,8 @@ import {LoginService} from "./login.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent{
+export class LoginComponent
+{
   mail = "";
   password = "";
   hide: boolean = true;
