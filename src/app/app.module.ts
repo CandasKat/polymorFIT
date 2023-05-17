@@ -46,7 +46,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ExercicePlayComponent } from './exercice/exercice-play/exercice-play.component';
 import { ExerciceSummaryDialogComponent } from './exercice/exercice-summary-dialog/exercice-summary-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +69,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 
   ],
     imports: [
+      CarouselModule,
         BrowserModule,
         BrowserAnimationsModule,
         MatCardModule,

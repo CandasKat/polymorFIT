@@ -1,7 +1,71 @@
 <div *ngIf="(authService.isLoggedIn$ | async) === false">
 
   <!-- EDGAR TU METS TON CARROUSEL ICI!!!!! -->
+  <owl-carousel-o [options]="customOptions" class="carousel-container">
+    <ng-template carouselSlide>
+      <div class="slide">
+        <mat-card class="example-card">
 
+          <img mat-card-image style="width: 300px; height: auto;" src="../../assets/images/Stat.png" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <h1>Track your <span class="highlight">progress</span></h1>
+            <p>
+              By using PolymorFIT you can keep track
+              your progress.
+            </p>
+          </mat-card-content>
+
+        </mat-card>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="slide">
+        <mat-card class="example-card">
+
+          <img mat-card-image style="width: 300px; height: auto;" src="assets/images/Workout.png" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <h1>Customized <span class="highlight">Workout</span></h1>
+            <p>
+              You can make your own and customized
+              workout.
+            </p>
+          </mat-card-content>
+
+        </mat-card>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="slide">
+        <mat-card class="example-card">
+
+          <img mat-card-image style="width: 300px; height: auto;" src="assets/images/Diet.png" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <h1><span class="highlight">Diet</span> plan</h1>
+            <p>
+              Eat healthier and tasty food with the diet plan advised by PolymorFIT.
+            </p>
+          </mat-card-content>
+
+        </mat-card>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="slide">
+        <mat-card class="example-card">
+
+          <img mat-card-image style="width: 300px; height: auto;" src="assets/images/Winner.png" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <h1><span class="highlight">Challenge</span> your friends</h1>
+            <p>
+              Share and challenge the workouts to
+              your friends.
+            </p>
+          </mat-card-content>
+
+        </mat-card>
+      </div>
+    </ng-template>
+  </owl-carousel-o>
 </div>
 
 <div *ngIf="authService.isLoggedIn$ | async">

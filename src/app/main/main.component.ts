@@ -3,7 +3,7 @@ import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {MainBottomSheetComponent} from "./main-bottom-sheet/main-bottom-sheet.component";
 import {AuthService} from "./auth.service";
 import {Subscription} from "rxjs";
-
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-main',
@@ -16,6 +16,17 @@ export class MainComponent implements AfterViewInit, OnDestroy{
    // @ts-ignore
   private isLoggedInSubscription: Subscription;
   constructor(private bottomSheet: MatBottomSheet, public authService: AuthService) {
+  }
+
+  customOptions: OwlOptions = {
+    loop: true,
+    center: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    navSpeed: 600,
+    items:1,
   }
   async ngAfterViewInit() {
     await new Promise((resolve) => setTimeout(resolve, 0));

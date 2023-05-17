@@ -1,3 +1,37 @@
+.carousel-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
+}
+.highlight{
+  color : #6750a4;
+}
+::ng-deep .owl-theme .owl-dots .owl-dot span {
+  background: #625b71!important; /* dots color*/
+}
+
+::ng-deep .owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  background: #6750a4!important; /*active and on hover color*/
+}
+.slide {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.example-card {
+  background-color: #dfd5ec;
+  width: 300px;
+  border: none;
+  box-shadow: none;
+}
+
+
 .hidden-bottom-sheet {
   display: none;
 }
