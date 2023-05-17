@@ -41,6 +41,15 @@
         "height": "3",
         "level": "beginner"
       }
-    }
+    },
+    {
+      "id": 4,
+      "mail": "edgaralves0605@gmail.com",
+      "password": null,
+      "first_name": "Edgar",
+      "last_name": "Alves",
+      "profile": null
+    },
+
   ]
 }
