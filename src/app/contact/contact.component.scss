@@ -1,0 +1,54 @@
+#page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+  padding: 0;
+  background-color: #DFD5EC;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  /* Adjust as needed */
+  margin: 0 0 10vh;
+}
+
+.mat-grid-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 500px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  height: 100%;
+  padding: 16px;
+  margin-top: 5px;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.contact-form {
+  padding: 16px;
+  width: 90%;
+  margin-right: 20%; // You can adjust this value to suit your layout
+
+  mat-card {
+    padding: 20px;
+
+    button {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
