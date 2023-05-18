@@ -5,12 +5,13 @@ import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {User, UserProfile} from "../model/user.model";
 import {HttpClient} from "@angular/common/http";
 import {SocialAuthService} from "@abacritt/angularx-social-login";
+import {Workouts} from "../model/exercice.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly apiUrl = 'http://localhost:3000/users';
+  private readonly apiUrl = 'http://localhost:3000';
 
   private currentUserProfileSubject = new BehaviorSubject<UserProfile | null>(null);
   currentUserProfile$ = this.currentUserProfileSubject.asObservable();
@@ -69,7 +70,7 @@ export class AuthService {
       return false;
     }
 
-    const requiredFields: Array<keyof UserProfile> = ['sex', 'age', 'weight', 'height', 'level'];
+    const requiredFields: Array<keyof UserProfile> = ['sex', 'age', 'weights', 'height', 'level'];
 
     for (const field of requiredFields) {
       if (!profile[field]) {
@@ -89,7 +90,7 @@ export class AuthService {
 
     const updatedProfile = { ...currentUser.profile, ...update };
 
-    return this.http.patch<UserProfile>(`${this.apiUrl}/${userId}`, { profile: updatedProfile }).pipe(
+    return this.http.patch<UserProfile>(`${this.apiUrl}/users/${userId}`, { profile: updatedProfile }).pipe(
       tap(() => {
         this.setCurrentUser({ ...currentUser, profile: updatedProfile });
       }),
@@ -115,7 +116,7 @@ export class AuthService {
       profile: user.profile,
     };
 
-    return this.http.post<User>(`${this.apiUrl}/`, newUser).pipe(
+    return this.http.post<User>(`${this.apiUrl}/users`, newUser).pipe(
       catchError(() => {
         return of(null);
       })
@@ -124,7 +125,7 @@ export class AuthService {
 
 
   findUserByEmail(email: string): Observable<User | null> {
-    return this.http.get<User[]>(`${this.apiUrl}?mail=${email}`).pipe(
+    return this.http.get<User[]>(`${this.apiUrl}/users?mail=${email}`).pipe(
       map((users) => (users.length > 0 ? users[0] : null)),
       catchError(() => {
         return of(null);
@@ -136,6 +137,14 @@ export class AuthService {
     // @ts-ignore
     this.setCurrentUser(null);
     this.socialAuthService.signOut();
+  }
+
+  saveWorkoutData(workout: Workouts): Observable<Workouts> | any {
+    return this.http.post(`${this.apiUrl}/workouts`, workout);
+  }
+
+  getWorkoutData(userId: number) {
+    return this.http.get(`${this.apiUrl}/workouts?userId=${userId}`);
   }
 
 }

@@ -16,10 +16,12 @@ profileForm: FormGroup;
     {value:"man", viewValue: "Man"},
     {value:"other", viewValue: "Other"} ]
   constructor(private formBuilder: FormBuilder, public authService: AuthService) {
+    const lastWeightRecord = this.getCurrentUserLastWeightRecord();
     this.profileForm = this.formBuilder.group({
       sex: ['', Validators.required],
       age: ['', Validators.required],
-      weight: ['', Validators.required],
+      weight: [lastWeightRecord.value, Validators.required],
+      weightDate: [lastWeightRecord.date, Validators.required],
       height: ['', Validators.required],
     });
   }
@@ -28,7 +30,12 @@ profileForm: FormGroup;
     const profile: UserProfile = {
       sex: this.profileForm.get('sex')?.value,
       age: this.profileForm.get('age')?.value,
-      weight: this.profileForm.get('weight')?.value,
+      weights: {
+        // @ts-ignore
+
+        value: this.profileForm.get('weight')?.value,
+        date: this.profileForm.get('weightDate')?.value,
+      },
       height: this.profileForm.get('height')?.value,
     };
 
@@ -53,6 +60,15 @@ profileForm: FormGroup;
       console.error('No current user found');
     }
   }
+
+  getCurrentUserLastWeightRecord() {
+    const currentUser = this.authService.getCurrentUser();
+    if (currentUser?.profile?.weights) {
+      return currentUser.profile.weights[currentUser.profile.weights.length - 1];
+    }
+    return {value: '', date: new Date().toISOString().split('T')[0]};
+  }
+
 
 }
 

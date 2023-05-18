@@ -1,0 +1,56 @@
+<h1>Report</h1>
+<h2>Week</h2>
+
+<div class="container">
+  <app-weekly-exercise-card
+    *ngFor="let day of lastSevenDays"
+    class="card"
+    [day]="day.date  | date:'dd'"
+    [exerciseTime]="day.exerciseTime"
+    [isExercised]="day.isExercised">
+  </app-weekly-exercise-card>
+</div>
+
+<h2>How active?</h2>
+
+<div>
+  <mat-card class="ex-container">
+    <mat-card-content>
+      <div class="stat-group">
+        <div class="stat-item">
+          <h1>{{totalWorkouts}}</h1>
+          <p>Exercises</p>
+        </div>
+        <div class="stat-item">
+          <h1>{{calorieBurned}}</h1>
+          <p>Kcal</p>
+        </div>
+        <div class="stat-item">
+          <h1>{{totalDuration}}</h1>
+          <p>Min</p>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<h2>Weight</h2>
+<div class="weight-display">
+  <div class="weight-item">
+    <p class="weight-label before-label">Before</p>
+    <div class="weight-bar-container">
+      <div class="weight-bar" [style.width.%]="pastWeight"></div>
+      <p class="weight-value before-value">{{ pastWeight }} kg</p>
+    </div>
+  </div>
+  <div class="weight-item">
+    <p class="weight-label now-label">Now</p>
+    <div class="weight-bar-container">
+      <div class="weight-bar" [style.width.%]="currentWeight"></div>
+      <p class="weight-value now-value">{{ currentWeight }} kg</p>
+    </div>
+  </div>
+</div>
+
+
+

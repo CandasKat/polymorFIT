@@ -1,0 +1,99 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.ex-container{
+  background: #dfd5ec;
+
+}
+
+.stat-group {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.stat-item {
+  position: relative;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.stat-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-right: 5px solid blueviolet;
+}
+
+
+h1 {
+  margin-top: 30px;
+  text-align: center;
+}
+
+h2{
+  margin:30px;
+}
+
+.weight-display {
+  display: flex;
+  flex-direction: column;
+}
+
+.weight-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.weight-label {
+  width: 60px;
+}
+
+.weight-bar-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.weight-bar {
+  height: 35px;
+  background-color: blueviolet;
+}
+
+p {
+  margin: 0 30px;
+}
+
+.weight-value{
+  margin-left: 15px;
+}
+
+.before-label,
+.before-value {
+  font-size: large;
+  color: gray;
+  font-weight: bold;
+}
+
+.now-label,
+.now-value {
+  font-size: large;
+  color: rgb(179, 110, 248);
+  font-weight: bold;
+  text-shadow:  4px 4px 5px #989898;
+}
+
+

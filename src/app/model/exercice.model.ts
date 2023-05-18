@@ -6,5 +6,16 @@ export interface Exercice{
   name: string,
   target: string,
   time?: number,
-  repetition?: number
+  repetition?: number,
+}
+
+
+export interface Workouts{
+  userId: number,
+  exerciceId: string,
+  startTime?: string,
+  endTime?: string,
+  duration: number,
+  id?: number,
+  caloriesBurned: number
 }

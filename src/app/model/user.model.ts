@@ -10,7 +10,12 @@ export interface User {
 export interface UserProfile {
   sex?: string;
   age?: string;
-  weight?: string;
+  weights?: Weight[];
   height?: string;
   level?: string;
+}
+
+export interface Weight {
+  value: number,
+  date: string
 }

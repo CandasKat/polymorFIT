@@ -46,7 +46,10 @@ import { ContactComponent } from './contact/contact.component';
 import { ExercicePlayComponent } from './exercice/exercice-play/exercice-play.component';
 import { ExerciceSummaryDialogComponent } from './exercice/exercice-summary-dialog/exercice-summary-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { RapportComponent } from './rapport/rapport.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import {MatStepperModule} from "@angular/material/stepper";
+import { WeeklyExerciseCardComponent } from './weekly-exercise-card/weekly-exercise-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,41 +69,44 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     ContactComponent,
     ExercicePlayComponent,
     ExerciceSummaryDialogComponent,
+    RapportComponent,
+    WeeklyExerciseCardComponent,
 
   ],
-    imports: [
-      CarouselModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatButtonModule,
-        ReactiveFormsModule,
-        MatToolbarModule,
-        MatMenuModule,
-        RoutingModule,
-        MatSidenavModule,
-        MatListModule,
-        MatLineModule,
-        FlexModule,
-        FlexLayoutModule,
-        MatBottomSheetModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatSelectModule,
-        MatCheckboxModule,
-        MatCarouselModule,
-        MatDividerModule,
-        HttpClientModule,
-        FormsModule,
-        MatRadioModule,
-        SocialLoginModule,
-        GoogleSigninButtonModule,
-        MatDialogModule
+  imports: [
+    CarouselModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatMenuModule,
+    RoutingModule,
+    MatSidenavModule,
+    MatListModule,
+    MatLineModule,
+    FlexModule,
+    FlexLayoutModule,
+    MatBottomSheetModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatCarouselModule,
+    MatDividerModule,
+    HttpClientModule,
+    FormsModule,
+    MatRadioModule,
+    SocialLoginModule,
+    GoogleSigninButtonModule,
+    MatDialogModule,
+    MatStepperModule
 
-    ],
+  ],
   providers: [MatDatepickerModule,
   {
       provide: 'SocialAuthServiceConfig',

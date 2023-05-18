@@ -1,6 +1,5 @@
 <div *ngIf="(authService.isLoggedIn$ | async) === false">
 
-  <!-- EDGAR TU METS TON CARROUSEL ICI!!!!! -->
   <owl-carousel-o [options]="customOptions" class="carousel-container">
     <ng-template carouselSlide>
       <div class="slide">
@@ -70,5 +69,9 @@
 
 <div *ngIf="authService.isLoggedIn$ | async">
   <h1>Welcome, {{ (authService.currentUser$ | async)?.firstName }} {{ (authService.currentUser$ | async)?.lastName }}</h1>
+
+  <!-- HOME PAGE ICI !!!!! -->
+
+
 </div>
 
