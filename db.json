@@ -81,6 +81,24 @@
       "duration": 86,
       "caloriesBurned": 47.30000000000001,
       "id": 2
+    },
+    {
+      "userId": 2,
+      "startTime": "2023-05-18T18:47:38.885Z",
+      "endTime": "2023-05-18T18:47:54.725Z",
+      "exerciceId": "1403",
+      "duration": 61,
+      "caloriesBurned": 33.55,
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "startTime": "2023-05-18T18:50:35.411Z",
+      "endTime": "2023-05-18T18:50:39.507Z",
+      "exerciceId": "1407",
+      "duration": 53,
+      "caloriesBurned": 37.95000000000001,
+      "id": 4
     }
   ]
 }

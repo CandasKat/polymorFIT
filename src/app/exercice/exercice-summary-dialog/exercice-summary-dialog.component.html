@@ -1,9 +1,9 @@
 <h1 mat-dialog-title>Workout Summary</h1>
     <div mat-dialog-content>
-      <p>Total workout time: {{ data.totalTime }} seconds</p>
+      <p>Total workout time: {{ data.totalDuration }} seconds</p>
       <p>Exercises completed: {{ data.workouts.length }}</p>
       <div *ngFor="let exercise of data.workouts">
-        <p>{{ exercise.name }}: {{ exercise.time }} seconds</p>
+        <p>{{ exercise.name }} for {{ exercise.target }}</p>
       </div>
     </div>
     <div mat-dialog-actions>
