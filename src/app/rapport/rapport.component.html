@@ -6,7 +6,7 @@
     *ngFor="let day of lastSevenDays"
     class="card"
     [day]="day.date  | date:'dd'"
-    [exerciseTime]="day.exerciseTime"
+    [exerciseTime]="parseFloat(day.exerciseTime.toFixed(2))"
     [isExercised]="day.isExercised">
   </app-weekly-exercise-card>
 </div>
@@ -22,11 +22,11 @@
           <p>Exercises</p>
         </div>
         <div class="stat-item">
-          <h1>{{calorieBurned}}</h1>
+          <h1>{{Math.round(calorieBurned)}}</h1>
           <p>Kcal</p>
         </div>
         <div class="stat-item">
-          <h1>{{totalDuration}}</h1>
+          <h1>{{totalDuration.toFixed(2)}}</h1>
           <p>Min</p>
         </div>
       </div>

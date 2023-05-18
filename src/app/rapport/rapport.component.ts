@@ -70,12 +70,13 @@ export class RapportComponent implements OnInit {
             // @ts-ignore
             if (day.date === exerciseDate) {
               // @ts-ignore
-              day.exerciseTime += exercise.duration;
+              day.exerciseTime += (exercise.duration / 60);
               // @ts-ignore
               day.isExercised = true;
             }
           }
         }
+        this.totalDuration = this.totalDuration / 60;
 
 
         console.log(this.userWorkouts);
@@ -83,4 +84,7 @@ export class RapportComponent implements OnInit {
       error => console.error(error)
     );
   }
+
+  protected readonly Math = Math;
+  protected readonly parseFloat = parseFloat;
 }
