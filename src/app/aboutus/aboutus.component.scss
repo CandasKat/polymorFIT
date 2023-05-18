@@ -1,0 +1,143 @@
+#page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #DFD5EC;
+  font-family: Arial, sans-serif;
+  color: #000;
+  padding: 0 20px 20px 20px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+#page h1, #page h2 {
+  color: #000;
+  font-size: 2em;
+}
+
+#page p {
+  line-height: 1.6;
+  font-size: 1.2em;
+}
+
+#page a {
+  color: #007BFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#page a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+#page .about-us {
+  background-color: #927fbf;
+  color: #FFF;
+  padding: 100px;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+#page .about-us h1 {
+  font-size: 4em;
+  margin-bottom: 20px;
+}
+
+#page .about-us p {
+  font-size: 2em;
+  margin: 0;
+}
+
+#page .section1, #page .section2, #page .section3, #page .section4, #page .section5 {
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 80%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#page .team-section {
+  position: relative;
+}
+
+.team-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.team-card {
+  position: relative;
+  width: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 20px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+
+    h3 {
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+mat-divider.info-divider {
+  border: white 1px solid;
+  width: 50%;
+  margin-left: 0;
+}
+
+mat-accordion {
+  width: 100%;
+  margin: 0 auto;
+}
+
+mat-panel-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.mat-expansion-panel, .section5 {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+@keyframes shake {
+  0%, 20% { transform: rotate(-5deg); }
+  10%, 30% { transform: rotate(5deg); }
+  40%, 100% { transform: none; }
+}
+
+.animated-link {
+  display: inline-block;
+  animation: shake 1s ease-in-out infinite;
+}

@@ -47,6 +47,10 @@ import { ExercicePlayComponent } from './exercice/exercice-play/exercice-play.co
 import { ExerciceSummaryDialogComponent } from './exercice/exercice-summary-dialog/exercice-summary-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import {NgOptimizedImage} from "@angular/common";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatGridListModule} from "@angular/material/grid-list";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,39 +72,42 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     ExerciceSummaryDialogComponent,
 
   ],
-    imports: [
-      CarouselModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatButtonModule,
-        ReactiveFormsModule,
-        MatToolbarModule,
-        MatMenuModule,
-        RoutingModule,
-        MatSidenavModule,
-        MatListModule,
-        MatLineModule,
-        FlexModule,
-        FlexLayoutModule,
-        MatBottomSheetModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatSelectModule,
-        MatCheckboxModule,
-        MatCarouselModule,
-        MatDividerModule,
-        HttpClientModule,
-        FormsModule,
-        MatRadioModule,
-        SocialLoginModule,
-        GoogleSigninButtonModule,
-        MatDialogModule
+  imports: [
+    CarouselModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatMenuModule,
+    RoutingModule,
+    MatSidenavModule,
+    MatListModule,
+    MatLineModule,
+    FlexModule,
+    FlexLayoutModule,
+    MatBottomSheetModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatCarouselModule,
+    MatDividerModule,
+    HttpClientModule,
+    FormsModule,
+    MatRadioModule,
+    SocialLoginModule,
+    GoogleSigninButtonModule,
+    MatDialogModule,
+    NgOptimizedImage,
+    MatExpansionModule,
+    MatGridListModule,
 
-    ],
+  ],
   providers: [MatDatepickerModule,
   {
       provide: 'SocialAuthServiceConfig',

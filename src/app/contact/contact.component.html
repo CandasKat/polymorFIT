@@ -1,1 +1,53 @@
-<p>contact works!</p>
+<div id="page">
+<mat-grid-list cols="2" rowHeight="500px">
+  <mat-grid-tile>
+    <div class="contact-info">
+      <h1>Get in touch with us</h1>
+      <p><strong>Email:</strong> your-email@example.com</p>
+      <p><strong>Phone:</strong> +1 234-567-8900</p>
+      <p><strong>Location:</strong> 1234 Example St., City, State</p>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="contact-form">
+      <mat-card-header>
+        <mat-card-title>Contact form</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Your Name" formControlName="name">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Your Email" type="email" formControlName="email">
+            <mat-error *ngIf="contactForm.get('email')?.invalid">Please provide a valid email</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Topic</mat-label>
+            <mat-select formControlName="topic">
+              <mat-option *ngFor="let topic of topics" [value]="topic">{{topic}}</mat-option>
+              <mat-option value="other">Other</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" *ngIf="contactForm.get('topic')?.value === 'other'">
+            <mat-label>Other topic</mat-label>
+            <input matInput placeholder="Enter your own topic here" formControlName="otherTopic">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Message</mat-label>
+            <textarea matInput placeholder="Your Message" formControlName="message"></textarea>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+</div>
