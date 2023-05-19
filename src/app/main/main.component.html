@@ -5,7 +5,7 @@
       <div class="slide">
         <mat-card class="example-card">
 
-          <img mat-card-image  src="../../assets/images/Stat.png" alt="Photo of a Shiba Inu">
+          <img mat-card-image ngSrc="../../assets/images/Stat.png" alt="Photo of a Shiba Inu" height="183" width="258">
           <mat-card-content>
             <h1>Track your <span class="highlight">progress</span></h1>
             <p>
@@ -21,7 +21,7 @@
       <div class="slide">
         <mat-card class="example-card">
 
-          <img mat-card-image src="assets/images/Workout.png" alt="Photo of a Shiba Inu">
+          <img mat-card-image ngSrc="assets/images/Workout.png" alt="cardio img" height="183" width="258">
           <mat-card-content>
             <h1>Customized <span class="highlight">Workout</span></h1>
             <p>
@@ -37,7 +37,7 @@
       <div class="slide">
         <mat-card class="example-card">
 
-          <img mat-card-image  src="assets/images/Diet.png" alt="Photo of a Shiba Inu">
+          <img mat-card-image ngSrc="assets/images/Diet.png" alt="Photo of a Shiba Inu" height="183" width="258">
           <mat-card-content>
             <h1><span class="highlight">Diet</span> plan</h1>
             <p>
@@ -52,7 +52,7 @@
       <div class="slide">
         <mat-card class="example-card">
 
-          <img mat-card-image src="assets/images/Winner.png" alt="Photo of a Shiba Inu">
+          <img mat-card-image ngSrc="assets/images/Winner.png" alt="Photo of a Shiba Inu" height="183" width="258">
           <mat-card-content>
             <h1><span class="highlight">Challenge</span> your friends</h1>
             <p>
@@ -71,6 +71,86 @@
   <h1>Welcome, {{ (authService.currentUser$ | async)?.firstName }} {{ (authService.currentUser$ | async)?.lastName }}</h1>
 
   <!-- HOME PAGE ICI !!!!! -->
+  <div class="home-container">
+    <div class="section">
+      <h2 class="section-title mat-h2">My Week</h2>
+      <div class="week-cards">
+        <div class="card">
+          <div class="card-info">
+            <span class="day">Mon.</span>
+            <span class="time">16h00 - 16h30</span>
+          </div>
+          <span class="workout-type">Cardio</span>
+        </div>
+        <div class="card">
+          <div class="card-info">
+            <span class="day">Mon.</span>
+            <span class="time">16h00 - 16h30</span>
+          </div>
+          <span class="workout-type">Cardio</span>
+        </div>
+        <div class="card">
+          <div class="card-info">
+            <span class="day">Mon.</span>
+            <span class="time">16h00 - 16h30</span>
+          </div>
+          <span class="workout-type">Cardio</span>
+        </div>
+        <div class="card">
+          <div class="card-info">
+            <span class="day">Mon.</span>
+            <span class="time">16h00 - 16h30</span>
+          </div>
+          <span class="workout-type">Cardio</span>
+        </div>
+        <div class="card">
+          <div class="card-info">
+            <span class="day">Mon.</span>
+            <span class="time">16h00 - 16h30</span>
+          </div>
+          <span class="workout-type">Cardio</span>
+        </div>
+        <div class="card">
+          <div class="card-info">
+            <span class="day">Mon.</span>
+            <span class="time">16h00 - 16h30</span>
+          </div>
+          <span class="workout-type">Cardio</span>
+        </div>
+        <div class="card">
+          <div class="card-info">
+            <span class="day">Mon.</span>
+            <span class="time">16h00 - 16h30</span>
+          </div>
+          <span class="workout-type">Cardio</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="workout-section">
+        <h2 class="section-title mat-h2">Workouts</h2>
+
+        <div class="workouts-container">
+          <mat-card class="workout-card">
+            <mat-card-content>
+              <div class="workout-content">
+                <mat-icon class="monogram">bookmark_border</mat-icon>
+                <div class="text">
+                  <span class="workout-type">Cardio</span>
+                  <span class="separator">|</span>
+                  <span class="workout-time">20 min</span>
+                </div>
+                <div class="media"></div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <!-- Add more workout cards -->
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 
 </div>
