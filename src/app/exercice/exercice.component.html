@@ -1,4 +1,4 @@
-<div *ngIf="!selectedExerciseType" class="toolbar-title">Workout</div>
+<div *ngIf="!selectedExerciseType" class="toolbar-title">Workouts</div>
 
 <div *ngIf="selectedExerciseType" class="exercise-details">
   <span class="exercise-type">Chest</span>
@@ -8,7 +8,7 @@
 
 
 
-<div class="search-container">
+<div class="search-container" *ngIf="!selectedExerciseType">
   <div class="filter-container">
     <mat-icon class="filter-icon" (click)="toggleFilterList()">filter_alt</mat-icon>
     <div *ngIf="showFilterList" class="filter-list">
@@ -29,7 +29,7 @@
             <span class="exercise-type">{{ type.viewValue }}</span>
             <span class="separator">|</span>
             <span class="exercise-time">{{ type.viewValue  }} mins</span>
-            <mat-icon class="additional-icon">directions_run</mat-icon>
+            <img [src]="svgIconPath" class="additional-icon" alt="SVG Icon">
           </div>
         </mat-card>
       </div>
@@ -49,25 +49,25 @@
       </div>-->
 
 <div [ngSwitch]="selectedExerciseType">
-  <div *ngSwitchCase="null">Please select an exercise type.</div>
   <div *ngSwitchDefault>
     <div *ngFor="let exercise of exercicesList">
       <mat-card class="selected-exercise-card">
-        <mat-card-title>{{ exercise.name }}</mat-card-title>
-        <mat-card-content>
-          <mat-icon class="bookmark-icon">bookmark_border</mat-icon>
-          <p>Time: {{ exercise.time }}</p>
-          <span class="separator">|</span>
-          <mat-icon class="run-icon">directions_run</mat-icon>
+        <mat-card-content class="exercise-content">
+          <div class="exercise-row">
+            <mat-icon class="bookmark-icon">bookmark_border</mat-icon>
+            <mat-card-title class="exercise-type">{{ exercise.name }}</mat-card-title>
+            <span class="separator">|</span>
+            <p class="exercise-time">Time: {{ exercise.time }}</p>
+            <img [src]="svgIconPath" class="run-icon" alt="SVG Icon">
+          </div>
         </mat-card-content>
       </mat-card>
     </div>
     <div class="button-container">
-      <button class="start-button" mat-icon-button (click)="startExercice()">
+      <button class="start-button" mat-button (click)="startExercice()">
         <mat-icon class="mat-select-arrow">play_arrow</mat-icon>
       </button>
     </div>
   </div>
 </div>
-
 

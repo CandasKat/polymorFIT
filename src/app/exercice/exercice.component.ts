@@ -5,11 +5,10 @@ import { Exercice } from "../model/exercice.model";
 import { Router } from "@angular/router";
 
 
-
 @Component({
   selector: 'app-exercice',
   templateUrl: './exercice.component.html',
-  styleUrls: ['./exercice.component.scss']
+  styleUrls: ['./exercice.component.scss'],
 })
 
 export class ExerciceComponent implements OnInit{
@@ -22,6 +21,7 @@ export class ExerciceComponent implements OnInit{
   isSearchOpen: boolean = false;
   searchQuery: string = '';
   selectedExercise: Exercice | undefined;
+  svgIconPath = 'assets/media.svg';
 
   constructor(
     private workoutService: WorkoutService,
@@ -131,7 +131,6 @@ downloadJsonData() {
 
   getExercicesWithNoEquipement(exType: string | any){
     this.selectedExerciseType = exType;
-    this.selectedExerciseType = 'exTime';
     this.workoutService.readExerciceDB().subscribe((exercice) => {
       this.exercicesList = [];
       // @ts-ignore
