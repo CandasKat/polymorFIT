@@ -161,15 +161,19 @@ margin-left: 10px;
 }
 
 .start-button {
-  background-color: plum;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   font-size: large;
-  padding: 10px 20px;
-  border-radius: 10px;
   scale: 3;
-  align-items: flex-end;
   float: right;
   margin-top: -15%;
   margin-right: 10%;
+  background: linear-gradient(0deg, rgba(103, 80, 164, 0.11), rgba(103, 80, 164, 0.11)), #FFFBFF;
+  /* M3/Elevation Light/3 */
+
+  box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
 }
 
 .button-container {
