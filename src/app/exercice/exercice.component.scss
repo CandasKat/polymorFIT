@@ -1,0 +1,174 @@
+.toolbar-title {
+  flex: 1;
+  text-align: center;
+  font-size: xx-large;
+  margin: 3%;
+}
+
+mat-toolbar {
+  background-color: initial;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 16px;
+}
+
+.search-icon,
+.filter-icon {
+  padding: 10px;
+  font-size: xx-large;
+  cursor: pointer;
+}
+
+.filter-icon {
+  margin-left: 5px; /* Adjust the margin as needed */
+}
+
+.filter-container {
+  position: relative;
+  display: inline-block;
+}
+
+.filter-list {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  z-index: 2;
+  background-color: #fff;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.filter-list div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.filter-list div:hover {
+  color: purple;
+}
+
+.exercise-card {
+  padding: 5%;
+  margin: 5%;
+  border-radius: 30px;
+}
+
+.exercise-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 4%;
+}
+
+.separator {
+  margin: 0 10px;
+  font-size: xx-large;
+}
+
+.exercise-time {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: large;
+  color: grey;
+}
+
+.exercise-type {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: x-large;
+}
+
+.exercise-icon,
+.additional-icon {
+transform: scale(2.5);
+}
+
+.exercise-icon {
+  margin-right: 10px;
+}
+
+
+.additional-icon {
+  margin-left: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .exercise-row {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    font-size: 50%;
+  }
+
+  .exercise-type,
+  .separator,
+  .exercise-time {
+    flex-basis: 100%;
+    margin-top: 5px;
+    /* Remove the overflow property */
+    /* overflow: hidden; */
+    font-size: xxx-large;
+    text-align: center;
+  }
+}
+
+
+
+.selected-exercise-card{
+  padding: 5%;
+  margin: 5%;
+  border-radius: 30px;
+}
+
+.exercise-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.bookmark-icon,
+.run-icon {
+  scale: 3;
+}
+
+.run-icon{
+  margin-right: 10px;
+}
+
+
+.selected-exercise-card {
+  padding: 5%;
+  margin: 5%;
+  border-radius: 30px;
+}
+
+.exercise-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.start-button {
+  background-color: plum;
+  font-size: large;
+  padding: 10px 20px;
+  border-radius: 10px;
+  scale: 3;
+  align-items: flex-end;
+  float: right;
+  margin-top: -10%;
+  margin-right: 10%;
+}
+
+.button-container {
+  align-items: flex-end;
+}
+
+.mat-select-arrow{
+  color: #6750a4;
+}

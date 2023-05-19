@@ -1,21 +1,32 @@
-import {Component, OnInit} from '@angular/core';
-import {WorkoutService} from "./workout.service";
-import {AuthService} from "../main/auth.service";
-import {Exercice} from "../model/exercice.model";
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { WorkoutService } from "./workout.service";
+import { AuthService } from "../main/auth.service";
+import { Exercice } from "../model/exercice.model";
+import { Router } from "@angular/router";
+
+
 
 @Component({
   selector: 'app-exercice',
   templateUrl: './exercice.component.html',
   styleUrls: ['./exercice.component.scss']
 })
+
 export class ExerciceComponent implements OnInit{
   userLevel =  this.authService.getCurrentUser()?.profile?.level;
   exercicesProgramList : Exercice[] = []
   exercicesList: Exercice[]  = []
   userDifficultyLevel: string | undefined;
   selectedExerciseType: string | undefined;
-  constructor(private workoutService: WorkoutService, private authService: AuthService, private router: Router) {}
+
+  isSearchOpen: boolean = false;
+  searchQuery: string = '';
+  selectedExercise: Exercice | undefined;
+
+  constructor(
+    private workoutService: WorkoutService,
+    private authService: AuthService,
+    private router: Router) {}
 
   ngOnInit() {
     this.userDifficultyLevel = this.authService.getCurrentUser()?.profile?.level;
@@ -25,6 +36,29 @@ export class ExerciceComponent implements OnInit{
     // create an exercices data by equipment
     // this.getExercicesWithNoEquipement()
 
+  }
+
+  handleExerciseClick(exercise: Exercice): void {
+    this.selectedExercise = exercise;
+  }
+
+  closeExerciseCard(): void {
+    this.selectedExercise = undefined;
+  }
+
+  // hides the filter list
+  showFilterList: boolean = false;
+  filterTimeout: any;
+
+
+  toggleFilterList(): void {
+    clearTimeout(this.filterTimeout);
+    this.showFilterList = !this.showFilterList;
+    if (this.showFilterList) {
+      this.filterTimeout = setTimeout(() => {
+        this.showFilterList = false;
+      }, 2000);
+    }
   }
 
   typeExercices = [
@@ -38,8 +72,37 @@ export class ExerciceComponent implements OnInit{
     {value: "upper arms", viewValue: "Upper arms"},
     {value: "upper legs", viewValue: "Upper legs"},
     {value: "waist", viewValue: "Waist"}
-  ]
+  ];
+
+  toggleSearch(): void {
+    clearTimeout(this.searchTimeout);
+    this.isSearchOpen = !this.isSearchOpen;
+    if (this.isSearchOpen) {
+      setTimeout(() => {
+        const searchInput = document.querySelector('input[type="text"]') as HTMLInputElement;
+        if (searchInput) {
+          searchInput.focus();
+        }
+        this.searchTimeout = setTimeout(() => {
+          this.isSearchOpen = false;
+          this.showFilterList = false;
+        }, 5000);
+      });
+    }
+  }
+
+  searchTimeout: any;
+
+  closeSearch(): void {
+    clearTimeout(this.searchTimeout);
+    this.isSearchOpen = false;
+    this.showFilterList = false;
+  }
+
   getExercicesListbyType(){
+    // Clear the previous list
+    this.exercicesProgramList = [];
+
     for (let t of this.typeExercices) {
       this.workoutService.getExercicesbyType(this.userLevel, t.value).subscribe((exercices) => {
         if (exercices) {
@@ -68,20 +131,23 @@ downloadJsonData() {
 
   getExercicesWithNoEquipement(exType: string | any){
     this.selectedExerciseType = exType;
+    this.selectedExerciseType = 'exTime';
     this.workoutService.readExerciceDB().subscribe((exercice) => {
+      this.exercicesList = [];
       // @ts-ignore
-
 
       for (let ex of exercice){
         if (ex.bodyPart === exType) { // @ts-ignore
 
-          this.exercicesList.push(ex)
+          this.exercicesList.push(ex);
         }
       }
       for (let i = this.exercicesList.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [this.exercicesList[i], this.exercicesList[j]] = [this.exercicesList[j], this.exercicesList[i]];
         }
+
+       this.showFilterList = false;
 
       if (this.userDifficultyLevel === "beginner"){
         const repetition = 8;
@@ -93,7 +159,7 @@ downloadJsonData() {
           exr.time = time;
         }
         this.workoutService.setExercisePlaylist(this.exercicesList);
-        console.log(this.exercicesList)
+        console.log(this.exercicesList);
 
       }
       else if (this.userDifficultyLevel === "intermediate"){
@@ -120,8 +186,7 @@ downloadJsonData() {
           exr.time= time;
         }
         this.workoutService.setExercisePlaylist(this.exercicesList);
-
-        console.log(this.exercicesList)
+        console.log(this.exercicesList);
       }
 
 
@@ -135,11 +200,12 @@ downloadJsonData() {
     //   URL.revokeObjectURL(url);
     //
     //   console.log(this.exercicesList)
-    })
+
+    });
   }
 
   startExercice(){
     this.router.navigate(['/play']);
   }
-
 }
+
