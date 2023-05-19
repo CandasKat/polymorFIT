@@ -37,15 +37,7 @@ export class MainComponent implements AfterViewInit, OnDestroy{
     margin:10,
     navSpeed: 600,
   }
-  WorkoutOptions: OwlOptions = {
-    stagePadding: 50,
-    mouseDrag: true,
-    touchDrag: true,
-    pullDrag: true,
-    dots: false,
-    margin:10,
-    navSpeed: 600,
-  }
+
 
   async ngAfterViewInit() {
     await new Promise((resolve) => setTimeout(resolve, 0));
