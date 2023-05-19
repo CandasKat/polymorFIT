@@ -28,6 +28,25 @@ export class MainComponent implements AfterViewInit, OnDestroy{
     navSpeed: 600,
     items:1,
   }
+  MyWeekOptions: OwlOptions = {
+    stagePadding: 30,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    margin:10,
+    navSpeed: 600,
+  }
+  WorkoutOptions: OwlOptions = {
+    stagePadding: 50,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    margin:10,
+    navSpeed: 600,
+  }
+
   async ngAfterViewInit() {
     await new Promise((resolve) => setTimeout(resolve, 0));
     this.isLoggedInSubscription = this.authService.isLoggedIn$.subscribe(loggedIn => {

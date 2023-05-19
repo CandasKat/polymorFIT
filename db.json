@@ -61,6 +61,23 @@
       "first_name": "Edgar",
       "last_name": "Alves",
       "profile": null
+    },
+    {
+      "id": 5,
+      "mail": "EdgarAlves@outlook.fr",
+      "password": "1234",
+      "first_name": "Edgar",
+      "last_name": "alves",
+      "profile": {
+        "sex": "man",
+        "age": "21",
+        "weights": {
+          "value": "2",
+          "date": "2023-05-19"
+        },
+        "height": "2",
+        "level": "intermediate"
+      }
     }
   ],
   "workouts": [

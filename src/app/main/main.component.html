@@ -1,11 +1,13 @@
 <div *ngIf="(authService.isLoggedIn$ | async) === false">
+<div class="container">
 
   <owl-carousel-o [options]="customOptions" class="carousel-container">
     <ng-template carouselSlide>
       <div class="slide">
         <mat-card class="example-card">
-
-          <img mat-card-image  src="../../assets/images/Stat.png" alt="Photo of a Shiba Inu">
+          <h1>Welcome to Polymor<span class="highlight">FIT</span></h1>
+          <img mat-card-image  src="../../assets/images/Stat.png" alt="Photo of a Shiba Inu" style=" width: 400px;
+  height: auto;">
           <mat-card-content>
             <h1>Track your <span class="highlight">progress</span></h1>
             <p>
@@ -13,15 +15,16 @@
               your progress.
             </p>
           </mat-card-content>
-
         </mat-card>
       </div>
     </ng-template>
     <ng-template carouselSlide>
       <div class="slide">
         <mat-card class="example-card">
+          <h1>Welcome to Polymor<span class="highlight">FIT</span></h1>
 
-          <img mat-card-image src="assets/images/Workout.png" alt="Photo of a Shiba Inu">
+          <img mat-card-image src="assets/images/Workout.png" alt="Photo of a Shiba Inu" style=" width: 400px;
+  height: auto;">
           <mat-card-content>
             <h1>Customized <span class="highlight">Workout</span></h1>
             <p>
@@ -36,8 +39,10 @@
     <ng-template carouselSlide>
       <div class="slide">
         <mat-card class="example-card">
+          <h1>Welcome to Polymor<span class="highlight">FIT</span></h1>
 
-          <img mat-card-image  src="assets/images/Diet.png" alt="Photo of a Shiba Inu">
+          <img mat-card-image  src="assets/images/Diet.png" alt="Photo of a Shiba Inu" style=" width: 400px;
+  height: auto;">
           <mat-card-content>
             <h1><span class="highlight">Diet</span> plan</h1>
             <p>
@@ -51,8 +56,10 @@
     <ng-template carouselSlide>
       <div class="slide">
         <mat-card class="example-card">
+          <h1>Welcome to Polymor<span class="highlight">FIT</span></h1>
 
-          <img mat-card-image src="assets/images/Winner.png" alt="Photo of a Shiba Inu">
+          <img mat-card-image src="assets/images/Winner.png" alt="Photo of a Shiba Inu" style=" width: 400px;
+  height: auto;">
           <mat-card-content>
             <h1><span class="highlight">Challenge</span> your friends</h1>
             <p>
@@ -68,9 +75,115 @@
 </div>
 
 <div *ngIf="authService.isLoggedIn$ | async">
-  <h1>Welcome, {{ (authService.currentUser$ | async)?.firstName }} {{ (authService.currentUser$ | async)?.lastName }}</h1>
+
 
   <!-- HOME PAGE ICI !!!!! -->
+  <div>
+    <h1 class="myweek">My <span class="highlight">Week</span></h1>
+
+  <owl-carousel-o [options]="MyWeekOptions">
+    <ng-template carouselSlide >
+      <div >
+        <mat-card class="week-card" >
+
+          <mat-card-content>
+            <h1>Track your <span class="highlight">progress</span></h1>
+            <p>
+              By using PolymorFIT you can keep track
+              your progress.
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide >
+      <div >
+        <mat-card class="week-card" >
+
+          <mat-card-content>
+            <h1>Track your <span class="highlight">progress</span></h1>
+            <p>
+              By using PolymorFIT you can keep track
+              your progress.
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide >
+      <div >
+        <mat-card class="week-card" >
+
+          <mat-card-content>
+            <h1>Track your <span class="highlight">progress</span></h1>
+            <p>
+              By using PolymorFIT you can keep track
+              your progress.
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide >
+      <div >
+        <mat-card class="week-card" >
+
+          <mat-card-content>
+            <h1>Track your <span class="highlight">progress</span></h1>
+            <p>
+              By using PolymorFIT you can keep track
+              your progress.
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div >
+        <mat-card class="week-card" >
+
+          <mat-card-content>
+            <h1>Track your <span class="highlight">progress</span></h1>
+            <p>
+              By using PolymorFIT you can keep track
+              your progress.
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide >
+      <div >
+        <mat-card class="week-card" >
+
+          <mat-card-content>
+            <h1>Track your <span class="highlight">progress</span></h1>
+            <p>
+              By using PolymorFIT you can keep track
+              your progress.
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide >
+      <div >
+        <mat-card class="week-card" >
+
+          <mat-card-content>
+            <h1>Track your <span class="highlight">progress</span></h1>
+            <p>
+              By using PolymorFIT you can keep track
+              your progress.
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-template>
+
+  </owl-carousel-o>
+  </div>
+
 
 
 </div>
