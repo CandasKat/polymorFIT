@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Juan",
+      "last_name": "Javier",
+      "mail": "juan.javier@example.com",
+      "password": "1234",
+      "profile": {
+        "sex": "man",
+        "age": "19",
+        "weight": "86",
+        "height": "187",
+        "level": "beginner"
+      }
+    },
+    {
+      "id": 2,
+      "first_name": "candas",
+      "last_name": "kat",
+      "mail": "candas@example.com",
+      "password": "1234",
+      "profile": {
+        "sex": "man",
+        "age": "31",
+        "weight": "82",
+        "height": "185",
+        "level": "beginner"
+      }
+    },
+    {
+      "id": 3,
+      "first_name": "test",
+      "last_name": "tester",
+      "mail": "tester@test.com",
+      "password": "1234",
+      "profile": {
+        "sex": "man",
+        "age": "1",
+        "weight": "2",
+        "height": "3",
+        "level": "beginner"
+      }
+    },
+    {
+      "id": 4,
+      "mail": "edgaralves0605@gmail.com",
+      "password": null,
+      "first_name": "Edgar",
+      "last_name": "Alves",
+      "profile": null
+    }
+  ]
+}
