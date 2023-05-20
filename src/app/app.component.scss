@@ -1,5 +1,6 @@
 mat-sidenav-container, mat-sidenav-content, mat-sidenav{
   height: 100%;
+
 }
 
 mat-sidenav {
@@ -9,6 +10,7 @@ mat-sidenav {
   bottom: 0;
   right: 0;
   z-index: 999;
+
 }
 .app-container {
   display: flex;

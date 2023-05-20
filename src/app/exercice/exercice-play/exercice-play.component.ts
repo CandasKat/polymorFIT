@@ -26,9 +26,11 @@ export class ExercicePlayComponent implements OnInit{
   totalCaloriesBurned = 0;
 
 
-  constructor(private workoutService: WorkoutService, private dialog: MatDialog, private router: Router,
-              private authService: AuthService) {
-  }
+  constructor(
+    private workoutService: WorkoutService,
+    private dialog: MatDialog,
+    private router: Router,
+    private authService: AuthService) {}
 
   ngOnInit() {
     this.currentUser = this.authService.getCurrentUser();
@@ -172,5 +174,10 @@ export class ExercicePlayComponent implements OnInit{
     return calorieRate * duration / 10 * difficulty;
   }
 
-
+  goBack() {
+    this.router.navigate(['/workout']);
+  }
 }
+
+
+

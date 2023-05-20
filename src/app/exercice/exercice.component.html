@@ -1,9 +1,9 @@
 <div *ngIf="!selectedExerciseType" class="toolbar-title">Workouts</div>
 
 <div *ngIf="selectedExerciseType" class="exercise-details">
-  <span class="exercise-type">Chest</span>
+  <span class="exercise-type">{{ selectedExerciseType }}</span>
   <span class="separator">|</span>
-  <span class="exercise-time">mins</span>
+  <span class="exercise-time">45 min</span>
 </div>
 
 
@@ -28,7 +28,7 @@
             <mat-icon class="exercise-icon">bookmark_border</mat-icon>
             <span class="exercise-type">{{ type.viewValue }}</span>
             <span class="separator">|</span>
-            <span class="exercise-time">{{ type.viewValue  }} mins</span>
+            <span class="exercise-time">{{ type.time  }} mins</span>
             <img [src]="svgIconPath" class="additional-icon" alt="SVG Icon">
           </div>
         </mat-card>

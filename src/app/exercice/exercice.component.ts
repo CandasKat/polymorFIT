@@ -17,6 +17,8 @@ export class ExerciceComponent implements OnInit{
   exercicesList: Exercice[]  = []
   userDifficultyLevel: string | undefined;
   selectedExerciseType: string | undefined;
+  filteredExercises: Exercice[] = [];
+  noExercisesFound: boolean = false;
 
   isSearchOpen: boolean = false;
   searchQuery: string = '';
@@ -62,16 +64,16 @@ export class ExerciceComponent implements OnInit{
   }
 
   typeExercices = [
-    {value: "cardio", viewValue: "Cardio"},
-    {value: "back", viewValue: "Back"},
-    {value: "chest", viewValue: "Chest"},
-    {value: "lower arms", viewValue: "Lower arms"},
-    {value: "lower legs", viewValue: "Lower legs"},
-    {value: "neck", viewValue: "Neck"},
-    {value: "shoulders", viewValue: "Shoulders"},
-    {value: "upper arms", viewValue: "Upper arms"},
-    {value: "upper legs", viewValue: "Upper legs"},
-    {value: "waist", viewValue: "Waist"}
+    {value: "cardio", viewValue: "Cardio", time: "30"},
+    {value: "back", viewValue: "Back", time: "45"},
+    {value: "chest", viewValue: "Chest", time: "30"},
+    {value: "lower arms", viewValue: "Lower arms", time: "45"},
+    {value: "lower legs", viewValue: "Lower legs", time: "45"},
+    {value: "neck", viewValue: "Neck", time: "30"},
+    {value: "shoulders", viewValue: "Shoulders", time: "30"},
+    {value: "upper arms", viewValue: "Upper arms", time: "45"},
+    {value: "upper legs", viewValue: "Upper legs", time: "30"},
+    {value: "waist", viewValue: "Waist",time: "30"}
   ];
 
   toggleSearch(): void {
@@ -86,7 +88,7 @@ export class ExerciceComponent implements OnInit{
         this.searchTimeout = setTimeout(() => {
           this.isSearchOpen = false;
           this.showFilterList = false;
-        }, 5000);
+        },  10000);
       });
     }
   }
@@ -99,12 +101,14 @@ export class ExerciceComponent implements OnInit{
     this.showFilterList = false;
   }
 
+
   getExercicesListbyType(){
     // Clear the previous list
     this.exercicesProgramList = [];
 
     for (let t of this.typeExercices) {
-      this.workoutService.getExercicesbyType(this.userLevel, t.value).subscribe((exercices) => {
+      const time = "30";
+      this.workoutService.getExercicesbyType(this.userLevel, t.value,time).subscribe((exercices) => {
         if (exercices) {
           // @ts-ignore
           this.exercicesProgramList = exercices

@@ -8,7 +8,7 @@
 .exercise-details{
   flex: 1;
   text-align: center;
-  font-size: xxx-large;
+  font-size: xx-large;
   margin: 3%;
 }
 
@@ -94,6 +94,9 @@ mat-toolbar {
   margin-left: auto;
   margin-right: auto;
   font-size: x-large;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .exercise-icon,
@@ -118,7 +121,7 @@ transform: scale(2);
     font-size: 50%;
   }
 
-  .exercise-type,
+
   .separator,
   .exercise-time {
     flex-basis: 100%;
@@ -182,4 +185,38 @@ margin-left: 10px;
 
 .mat-select-arrow{
   color: #6750a4;
+}
+
+
+@media (min-width: 800px) {
+  .toolbar-title {
+    font-size: xxx-large;
+  }
+
+  .exercise-details {
+    font-size: 3rem;
+  }
+
+
+  .exercise-icon,
+  .additional-icon,
+  .bookmark-icon,
+  .run-icon {
+    transform: scale(3);
+  }
+
+  .start-button {
+    font-size: 2rem;
+    transform: scale(2);
+    margin-right: 15%;
+  }
+
+  .separator {
+    font-size: 4rem;
+  }
+
+  .exercise-time {
+    font-size: 1.5rem;
+  }
+
 }

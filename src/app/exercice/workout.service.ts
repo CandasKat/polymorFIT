@@ -31,11 +31,11 @@ export class WorkoutService{
       }})
   }
 
-  getExercicesbyType(difficulty: string | undefined, type: string){
+  getExercicesbyType(difficulty: string | undefined, type: string, time: string){
     const url = "https://api.api-ninjas.com/v1/exercises"
     // @ts-ignore
-    return this.http.get(url, {headers: {'X-Api-Key': '6UU8hcZxFXHN4AVnSsOUHg==mTo54yTCui6EhkCa'}, params:{'difficulty': difficulty, 'type': type}})
-  }
+    return this.http.get(url, {headers: {'X-Api-Key': '6UU8hcZxFXHN4AVnSsOUHg==mTo54yTCui6EhkCa'}, params:{'difficulty': difficulty, 'type': type,'time': time}});
+}
 
   readExerciceDB() {
     return this.http.get('../../assets/exercicedb/data.json')
