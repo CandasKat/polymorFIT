@@ -80,61 +80,14 @@
       <h2 class="section-title mat-h2">My Week</h2>
       <div class="week-cards">
 
-        <div class="card">
+        <div class="card" *ngFor="let dayCard of weekList ">
           <div class="card-info">
-            <span class="day">Mon.</span>
-            <span class="time">16h00 - 16h30</span>
+            <span class="day">{{ dayCard.day }}</span>
+            <span class="time">{{ dayCard.time }}</span>
           </div>
-          <span class="workout-type">Cardio</span>
+          <span class="workout-type">{{ dayCard.workoutType }}</span>
         </div>
 
-        <div class="card">
-          <div class="card-info">
-            <span class="day">Tues.</span>
-            <span class="time">16h00 - 16h30</span>
-          </div>
-          <span class="workout-type">Cardio</span>
-        </div>
-
-        <div class="card">
-          <div class="card-info">
-            <span class="day">Wed.</span>
-            <span class="time">16h00 - 16h30</span>
-          </div>
-          <span class="workout-type">Cardio</span>
-        </div>
-
-        <div class="card">
-          <div class="card-info">
-            <span class="day">Thu.</span>
-            <span class="time">16h00 - 16h30</span>
-          </div>
-          <span class="workout-type">Cardio</span>
-        </div>
-
-        <div class="card">
-          <div class="card-info">
-            <span class="day">Fri.</span>
-            <span class="time">16h00 - 16h30</span>
-          </div>
-          <span class="workout-type">Cardio</span>
-        </div>
-
-        <div class="card">
-          <div class="card-info">
-            <span class="day">Sat.</span>
-            <span class="time">16h00 - 16h30</span>
-          </div>
-          <span class="workout-type">Cardio</span>
-        </div>
-
-        <div class="card">
-          <div class="card-info">
-            <span class="day">Sun.</span>
-            <span class="time">16h00 - 16h30</span>
-          </div>
-          <span class="workout-type">Cardio</span>
-        </div>
       </div>
     </div>
 
@@ -142,55 +95,21 @@
     <div class="workout-section">
       <h2 class="section-title mat-h2">Workouts</h2>
       <div class="workouts-container">
+        <div *ngFor="let workout of workoutList">
 
-        <mat-card class="workout-card">
-          <mat-card-content class="workout-content">
-            <mat-icon class="monogram">bookmark_border</mat-icon>
-            <div class="text">
-              <span class="workout-type">Cardio</span>
-              <span class="separator">|</span>
-              <span class="workout-time">20 min</span>
-            </div>
-            <mat-icon class="media"></mat-icon>
-          </mat-card-content>
-        </mat-card>
+          <mat-card class="workout-card">
+            <mat-card-content class="workout-content">
+              <mat-icon class="monogram">bookmark_border</mat-icon>
+              <div class="text">
+                <span class="workout-type">{{ workout.type }}</span>
+                <span class="separator">|</span>
+                <span class="workout-time">{{ workout.time }}</span>
+              </div>
+              <mat-icon class="media"></mat-icon>
+            </mat-card-content>
+          </mat-card>
 
-        <mat-card class="workout-card">
-          <mat-card-content class="workout-content">
-            <mat-icon class="monogram">bookmark_border</mat-icon>
-            <div class="text">
-              <span class="workout-type">Cardio</span>
-              <span class="separator">|</span>
-              <span class="workout-time">20 min</span>
-            </div>
-            <mat-icon class="media"></mat-icon>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="workout-card">
-          <mat-card-content class="workout-content">
-            <mat-icon class="monogram">bookmark_border</mat-icon>
-            <div class="text">
-              <span class="workout-type">Cardio</span>
-              <span class="separator">|</span>
-              <span class="workout-time">20 min</span>
-            </div>
-            <mat-icon class="media"></mat-icon>
-          </mat-card-content>
-        </mat-card>
-
-        <mat-card class="workout-card">
-          <mat-card-content class="workout-content">
-            <mat-icon class="monogram">bookmark_border</mat-icon>
-            <div class="text">
-              <span class="workout-type">Cardio</span>
-              <span class="separator">|</span>
-              <span class="workout-time">20 min</span>
-            </div>
-            <mat-icon class="media"></mat-icon>
-          </mat-card-content>
-        </mat-card>
-
+        </div>
       </div>
     </div>
   </div>
