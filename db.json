@@ -10,8 +10,12 @@
         "sex": "man",
         "age": "19",
         "weight": "86",
-        "height": "187",
-        "level": "beginner"
+        "height": "181",
+        "level": "beginner",
+        "weights": {
+          "value": "97",
+          "date": "2023-05-20"
+        }
       }
     },
     {
@@ -25,16 +29,25 @@
         "age": "31",
         "weights": [
           {
-            "value": 82,
-            "date": "2023-03-01"
+            "value": 81,
+            "date": "2023-05-20"
           },
           {
             "value": 81,
-            "date": "2023-05-16"
+            "date": "2023-05-20"
+          },
+          {
+            "value": 81,
+            "date": "2023-05-20"
+          },
+          {
+            "value": "80",
+            "date": "2023-05-20"
           }
         ],
         "height": "185",
-        "level": "beginner"
+        "level": "intermediate",
+        "image": "/assets/test.jpg"
       }
     },
     {

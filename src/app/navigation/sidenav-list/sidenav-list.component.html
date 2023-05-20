@@ -1,4 +1,15 @@
+<div class="close-button" (click)="onSidenavClose()">
+  <mat-icon>close</mat-icon>
+</div>
+
 <mat-nav-list>
+   <div *ngIf="isLoggedIn">
+      <a mat-list-item routerLink="/user" (click)="onSidenavClose()" class="user-profile">
+          <img *ngIf="currentUserImage" [src]="currentUserImage" alt="User Image">
+          <span *ngIf="!currentUserImage" class="initial">{{currentUserSymbol}}</span>
+      </a>
+   </div>
+
   <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
     <mat-icon>home</mat-icon><span class="nav-caption">Home</span>
   </a>

@@ -12,3 +12,38 @@ a:hover, a:active{
   padding-left: 6px;
 }
 
+.user-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+}
+
+.user-profile img, .initial {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.initial {
+  color: #b36ef8;
+  background: darkgray;
+}
+
+
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+}
+
+mat-nav-list{
+  margin-top: 35px;
+}

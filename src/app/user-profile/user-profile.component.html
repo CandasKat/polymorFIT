@@ -1,0 +1,52 @@
+
+<form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()" class="profile-form">
+  <div class="form-field-group">
+
+  <div class="file-container">
+    <label>Profile Image</label>
+    <input type="file" (change)="onFileSelect($event)">
+    <img *ngIf="selectedImage; else initial" [src]="selectedImage" class="preview-image" />
+
+    <ng-template #initial>
+      <div class="initial">{{currentUserSymbol}}</div>
+    </ng-template>
+
+
+  </div>
+
+
+  <mat-form-field  class="form-field">
+    <mat-label>First Name</mat-label>
+    <input readonly matInput type="text" formControlName="firstName">
+  </mat-form-field>
+  <mat-form-field  class="form-field">
+    <mat-label>Last Name</mat-label>
+    <input readonly matInput type="text" formControlName="lastName">
+  </mat-form-field>
+  <mat-form-field  class="form-field">
+    <mat-label>Age</mat-label>
+    <input matInput type="text" formControlName="age">
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <mat-label>Weight</mat-label>
+    <input matInput type="text" formControlName="weight">
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <mat-label>Height</mat-label>
+    <input matInput type="text" formControlName="height">
+  </mat-form-field>
+    <mat-form-field class="form-field">
+    <mat-label>Level</mat-label>
+    <mat-select formControlName="exerciceLevel">
+      <mat-option *ngFor="let ex of level" [value]="ex.value">{{ex.viewValue}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+    <div class="button-group">
+      <button mat-fab extended color="primary" type="submit" [disabled]="!userProfileForm.valid">Submit</button>
+      <button mat-fab extended color="primary" (click)="cancel()">Cancel</button>
+    </div>
+    </div>
+
+
+</form>
+

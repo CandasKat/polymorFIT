@@ -14,6 +14,8 @@ export class SidenavListComponent implements OnInit, OnDestroy{
   isLoggedIn = false;
   // @ts-ignore
   private isLoggedInSubscription: Subscription;
+  currentUserImage: string | null | undefined;
+  currentUserSymbol: string | undefined;
   constructor(public authService: AuthService, private router: Router) {
   }
 
@@ -21,6 +23,11 @@ export class SidenavListComponent implements OnInit, OnDestroy{
     this.isLoggedInSubscription = this.authService.isLoggedIn$.subscribe(
       (loggedIn) => {
         this.isLoggedIn = loggedIn;
+        this.authService.currentUser$.subscribe((user) => {
+          // @ts-ignore
+          this.currentUserImage = user.profile.image
+          this.currentUserSymbol = user?.firstName.charAt(0)
+        })
       }
     );
   }

@@ -16,7 +16,7 @@ export class AuthService {
   private currentUserProfileSubject = new BehaviorSubject<UserProfile | null>(null);
   currentUserProfile$ = this.currentUserProfileSubject.asObservable();
   private currentUserSubject = new BehaviorSubject<{
-    id: number,firstName: string; lastName: string, profile: UserProfile | null
+    id: number,firstName: string; lastName: string, image: string | null, profile: UserProfile | null
   } | null>(null);
 
   currentUser$ = this.currentUserSubject.asObservable()
@@ -42,7 +42,7 @@ export class AuthService {
   }
 
 
-  getCurrentUser(): { id: number, firstName: string; lastName: string, profile: UserProfile | null } | null {
+  getCurrentUser(): { id: number, firstName: string; lastName: string, image:string | null, profile: UserProfile | null } | null {
     return this.currentUserSubject.value;
   }
 
@@ -73,13 +73,15 @@ export class AuthService {
     const requiredFields: Array<keyof UserProfile> = ['sex', 'age', 'weights', 'height', 'level'];
 
     for (const field of requiredFields) {
-      if (!profile[field]) {
+      // @ts-ignore
+      if (!profile[field] || (Array.isArray(profile[field]) && profile[field].length === 0)) {
         return false;
       }
     }
 
     return true;
   }
+
 
   updateUserProfile(userId: number, update: Partial<UserProfile>): Observable<UserProfile | null> {
     const currentUser = this.getCurrentUser();

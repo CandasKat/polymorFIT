@@ -1,7 +1,7 @@
 .backdrop-custom {
   display: none !important;
-
 }
+
 :host {
   bottom: 0;
   pointer-events: none;
@@ -17,6 +17,23 @@
   align-items: center;
 }
 
+.button-group {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+}
+
 .bottom-sheet-container button {
   pointer-events: all;
+  margin: 5px 0;
 }
+
+.button-group button,
+.bottom-sheet-container button {
+  width: 100%;
+}
+

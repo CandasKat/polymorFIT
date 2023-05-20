@@ -54,6 +54,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 
 import {MatStepperModule} from "@angular/material/stepper";
 import { WeeklyExerciseCardComponent } from './weekly-exercise-card/weekly-exercise-card.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +76,7 @@ import { WeeklyExerciseCardComponent } from './weekly-exercise-card/weekly-exerc
     ExerciceSummaryDialogComponent,
     RapportComponent,
     WeeklyExerciseCardComponent,
+    UserProfileComponent,
 
   ],
     imports: [

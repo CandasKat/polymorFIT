@@ -13,6 +13,7 @@ export interface UserProfile {
   weights?: Weight[];
   height?: string;
   level?: string;
+  image?: string | null;
 }
 
 export interface Weight {
