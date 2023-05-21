@@ -21,7 +21,7 @@ export class LoginComponent
     this.router.navigate(['/home']);
   }
   onSubmit(): void {
-    this.loginService.login(this.mail, this.password).subscribe(result => {
+    this.loginService.loginSer(this.mail, this.password).subscribe(result => {
     if (result) {
 
       console.log(result);

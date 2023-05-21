@@ -42,7 +42,7 @@ export class SignupComponent {
     return this.signupForm.get(controlName) as FormControl;
   }
   onSubmit(): void {
-    this.signup.signup(
+    this.signup.signupSer(
     this.signupForm.get('mail')?.value || '',
     this.signupForm.get('password')?.value || '',
     this.signupForm.get('first_name')?.value || '',

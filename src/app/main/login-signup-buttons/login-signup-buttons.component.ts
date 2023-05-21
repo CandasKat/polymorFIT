@@ -1,22 +1,24 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
-import {SocialAuthService} from "@abacritt/angularx-social-login";
+import {GoogleLoginProvider, SocialAuthService} from "@abacritt/angularx-social-login";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-login-signup-buttons',
   templateUrl: './login-signup-buttons.component.html',
   styleUrls: ['./login-signup-buttons.component.scss']
 })
-export class LoginSignupButtonsComponent implements OnInit{
+export class LoginSignupButtonsComponent implements OnInit, OnDestroy{
   @Input() button_name="";
   @Input() isDisabled = true;
+  authStateSubscription: Subscription | undefined;
 
   constructor(private socialAuthService: SocialAuthService,  private authService: AuthService,
               private router: Router) { }
 
   ngOnInit(): void {
-    this.socialAuthService.authState.subscribe((user) => {
+    this.authStateSubscription = this.socialAuthService.authState.subscribe((user) => {
       if (user) {
         this.onSignIn(user);
         this.router.navigate(["/home"]);
@@ -26,6 +28,16 @@ export class LoginSignupButtonsComponent implements OnInit{
       }
     });
   }
+
+  ngOnDestroy(): void {
+    // @ts-ignore
+    this.authStateSubscription.unsubscribe();
+  }
+
+  googleSignIn(): void {
+  this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
+}
+
 
   // @ts-ignore
   onSignIn(googleUser): void {

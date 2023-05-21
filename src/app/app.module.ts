@@ -38,7 +38,6 @@ import {MatRadioModule} from "@angular/material/radio";
 import {
   GoogleLoginProvider, GoogleSigninButtonModule,
   SocialAuthServiceConfig,
-  SocialLoginModule
 } from "@abacritt/angularx-social-login";
 import {ExerciceComponent} from "./exercice/exercice.component";
 import { AboutusComponent } from './aboutus/aboutus.component';
@@ -107,7 +106,6 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
         HttpClientModule,
         FormsModule,
         MatRadioModule,
-        SocialLoginModule,
         GoogleSigninButtonModule,
         MatDialogModule,
         MatStepperModule,

@@ -132,84 +132,21 @@
     },
     {
       "userId": 2,
-      "startTime": "2023-05-19T18:19:39.678Z",
-      "endTime": "2023-05-19T18:19:42.477Z",
-      "exerciceId": "1403",
-      "duration": 2,
-      "caloriesBurned": 1.6500000000000001,
+      "startTime": "2023-05-20T15:20:30.423Z",
+      "endTime": "2023-05-20T15:20:38.136Z",
+      "exerciceId": "3671",
+      "duration": 3,
+      "caloriesBurned": 1.7999999999999998,
       "id": 5
     },
     {
       "userId": 2,
-      "startTime": "2023-05-19T18:37:02.007Z",
-      "endTime": "2023-05-19T18:37:22.516Z",
-      "exerciceId": "1167",
-      "duration": 1,
-      "caloriesBurned": 0.55,
+      "startTime": "2023-05-20T16:33:14.856Z",
+      "endTime": "2023-05-20T16:33:19.074Z",
+      "exerciceId": "3221",
+      "duration": 10,
+      "caloriesBurned": 5.999999999999999,
       "id": 6
-    },
-    {
-      "userId": 2,
-      "startTime": "2023-05-19T18:53:23.007Z",
-      "endTime": "2023-05-19T18:53:26.245Z",
-      "exerciceId": "0716",
-      "duration": 1,
-      "caloriesBurned": 0.55,
-      "id": 7
-    },
-    {
-      "userId": 2,
-      "startTime": "2023-05-19T18:53:38.074Z",
-      "endTime": "2023-05-19T18:53:42.245Z",
-      "exerciceId": "1403",
-      "duration": 2,
-      "caloriesBurned": 1.1,
-      "id": 8
-    },
-    {
-      "userId": 2,
-      "startTime": "2023-05-19T19:07:02.651Z",
-      "endTime": "2023-05-19T19:07:05.302Z",
-      "exerciceId": "0716",
-      "duration": 1,
-      "caloriesBurned": 0.55,
-      "id": 9
-    },
-    {
-      "userId": 2,
-      "startTime": "2023-05-19T20:18:23.473Z",
-      "endTime": "2023-05-19T20:18:25.303Z",
-      "exerciceId": "1403",
-      "duration": 1,
-      "caloriesBurned": 0.55,
-      "id": 10
-    },
-    {
-      "userId": 2,
-      "startTime": "2023-05-20T11:40:07.430Z",
-      "endTime": "2023-05-20T11:40:13.494Z",
-      "exerciceId": "0716",
-      "duration": 0,
-      "caloriesBurned": 0,
-      "id": 11
-    },
-    {
-      "userId": 2,
-      "startTime": "2023-05-20T11:40:37.446Z",
-      "endTime": "2023-05-20T11:40:38.332Z",
-      "exerciceId": "0716",
-      "duration": 0,
-      "caloriesBurned": 0,
-      "id": 12
-    },
-    {
-      "userId": 2,
-      "startTime": "2023-05-20T13:03:35.081Z",
-      "endTime": "2023-05-20T13:03:36.845Z",
-      "exerciceId": "0716",
-      "duration": 0,
-      "caloriesBurned": 0,
-      "id": 13
     }
   ]
 }

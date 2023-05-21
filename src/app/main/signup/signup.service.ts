@@ -13,7 +13,7 @@ export class SignupService {
   constructor(private http: HttpClient, private authService: AuthService) {
   }
 
-  signup(
+  signupSer(
     mail: string,
     password: string,
     first_name: string,

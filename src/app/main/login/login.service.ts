@@ -11,7 +11,7 @@ export class LoginService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  login(mail: string, password: string): Observable<boolean> {
+  loginSer(mail: string, password: string): Observable<boolean> {
     return this.http.get<any[]>(`${this.apiUrl}?mail=${mail}&password=${password}`).pipe(
       map(users => {
         if (users.length > 0) {
