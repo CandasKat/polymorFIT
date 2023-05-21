@@ -41,30 +41,30 @@
   color: purple;
 }
 
-.exercise-card {
-  padding: 5%;
-  margin: 5%;
-  border-radius: 30px;
-}
-
 .home-container {
   display: grid;
-  grid-template-rows: 1fr auto; /* Divide the container into two rows, the second row for the button container */
+  grid-template-rows: 1fr auto;
   align-items: center;
   justify-content: center;
   padding: 20px;
 }
 
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 20px;
+}
+
+
 .workout-section {
-  .section-title {
-    margin-bottom: 10px;
-  }
 
   .workouts-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Adjust the gap value as needed */
+    justify-content: center;
+    gap: 30px;
   }
 
   .workout-card {
@@ -73,24 +73,26 @@
     justify-content: space-between;
     border-radius: 12px;
     filter: drop-shadow(0px 4px 4px rgba(103, 80, 164, 0.4));
-    overflow: hidden;
-    margin-bottom: 10px; /* Adjust the margin-bottom value as needed */
+
+    margin-bottom: 30px;
+    width: 450px;
+    height: 180px;
   }
 
   .workout-content {
     display: flex;
     align-items: center;
-    gap: 16px;
     padding: 16px;
     flex: 1;
-    width: 328px;
-    height: 73px;
+    width: 358px;
+    height: 120px;
   }
 
   .monogram {
     flex-shrink: 0;
     background-position: center;
     background-size: cover;
+    font-size: 30px !important;
   }
 
   .text {
@@ -100,11 +102,12 @@
     text-align: center;
     gap: 4px;
     flex-grow: 1;
+    font-size: 20px;
   }
 
   .media {
-    width: 64px;
-    height: 58px;
+    width: 80px; /* Adjust the width as desired */
+    height: 72px; /* Adjust the height as desired */
     flex-shrink: 0;
     background-image: url('../../assets/images/cardio.png');
     background-size: cover;
@@ -131,7 +134,7 @@
   scale: 3;
   background: linear-gradient(0deg, rgba(103, 80, 164, 0.11), rgba(103, 80, 164, 0.11)), #FFFBFF;
   /* M3/Elevation Light/3 */
-  box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   padding: 10px;
 
