@@ -18,11 +18,11 @@
     </div>
   </div>
   <mat-icon class="search-icon" (click)="toggleSearch()">search</mat-icon>
-  <input type="text" [(ngModel)]="searchQuery" [hidden]="!isSearchOpen" (blur)="closeSearch()" />
+  <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="filterExercises()" [hidden]="!isSearchOpen" (blur)="closeSearch()" />
 </div>
 
     <div *ngIf="!selectedExerciseType">
-      <div *ngFor="let type of typeExercices" (click)="getExercicesWithNoEquipement(type.value)">
+      <div *ngFor="let type of filteredExercises" (click)="getExercicesWithNoEquipement(type.value)">
         <mat-card class="exercise-card">
           <div class="exercise-row">
             <mat-icon class="exercise-icon">bookmark_border</mat-icon>
@@ -33,6 +33,7 @@
           </div>
         </mat-card>
       </div>
+      <div *ngIf="noExercisesFound">No exercises found</div>
     </div>
 
 
@@ -63,6 +64,8 @@
         </mat-card-content>
       </mat-card>
     </div>
+
+
     <div class="button-container">
       <button class="start-button" mat-button (click)="startExercice()">
         <mat-icon class="mat-select-arrow">play_arrow</mat-icon>

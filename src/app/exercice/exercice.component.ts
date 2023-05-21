@@ -17,7 +17,7 @@ export class ExerciceComponent implements OnInit{
   exercicesList: Exercice[]  = []
   userDifficultyLevel: string | undefined;
   selectedExerciseType: string | undefined;
-  filteredExercises: Exercice[] = [];
+  filteredExercises:any[] = [];
   noExercisesFound: boolean = false;
 
   isSearchOpen: boolean = false;
@@ -37,8 +37,22 @@ export class ExerciceComponent implements OnInit{
 
     // create an exercices data by equipment
     // this.getExercicesWithNoEquipement()
-
+    this.filteredExercises = this.typeExercices;
   }
+
+  filterExercises(): void {
+    if (this.searchQuery) {
+      // @ts-ignore
+      this.filteredExercises = this.typeExercices.filter(exercise =>
+        exercise.value.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+      this.noExercisesFound = this.filteredExercises.length === 0;
+    } else {
+      this.filteredExercises = this.typeExercices;
+      this.noExercisesFound = false;
+    }
+  }
+
 
   handleExerciseClick(exercise: Exercice): void {
     this.selectedExercise = exercise;
