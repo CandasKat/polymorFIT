@@ -1,4 +1,7 @@
 <div class="card" [ngClass]="{'exercised': isExercised}">
-  <h1>{{day}}</h1>
-  <p>{{exerciseTime}} minutes</p>
+  <h2>{{day}}</h2>
+  <div *ngIf="startTime">
+  <span class="ex-time">{{startTime}} - {{endTime}}</span>
+  </div>
+  <p>{{exerciseTime}}</p>
 </div>

@@ -71,31 +71,40 @@
 </div>
 
 <div *ngIf="authService.isLoggedIn$ | async">
-  <h1>
-    Welcome, {{ (authService.currentUser$ | async)?.firstName }} {{ (authService.currentUser$ | async)?.lastName }}</h1>
-
+  <h1 [ngClass]="{ 'particle-heading': particlesLoaded }"><b>Welcome, {{ (authService.currentUser$ | async)?.firstName }} {{ (authService.currentUser$ | async)?.lastName }}</b></h1>
   <!-- HOME PAGE ICI !!!!! -->
   <div class="home-container">
     <div class="week-section">
-      <h2 class="section-title mat-h2">My Week</h2>
+      <h2 class="section-title mat-h2" [ngClass]="{ 'particle-heading': particlesLoaded }"><b>My Week</b></h2>
+      <div *ngIf="checkGoalAchievement()">
+        <h2 class="congratulation">Congratulations! You've reached your weekly exercise goal!</h2>
+        <ng-particles id="tsparticles" [options]="options" [particlesInit]="particlesInit" (particlesLoaded)="particlesLoaded($event)"></ng-particles>
+
+      </div>
+
+
+
+      <!-- Exercise Target Section -->
+      <div class="exercise-target">
+        <h3 [ngClass]="{ 'particle-heading': particlesLoaded }">Your Weekly Exercise Goal: {{ (authService.currentUser$ | async | filterProfile)?.profile.exerciseTarget }} days</h3>
+        <button mat-raised-button (click)="setExerciseTarget()">Update Goal</button>
+      </div>
+
       <div class="week-cards">
-
-        <div class="card" *ngFor="let dayCard of weekList ">
-          <div class="card-info">
-            <span class="day">{{ dayCard.day }}</span>
-            <span class="time">{{ dayCard.time }}</span>
-          </div>
-          <span class="workout-type">{{ dayCard.workoutType }}</span>
-        </div>
-
+        <app-weekly-exercise-card *ngFor="let day of lastSevenDays"
+                                  class="card"
+                                  [day]="day.date  | date:'EEE'"
+                                  [startTime]="day.startTime | date:'HH:mm'"
+                                  [endTime]="day.endTime | date:'HH:mm'"
+                                  [isExercised]="day.isExercised">></app-weekly-exercise-card>
       </div>
     </div>
 
-
     <div class="workout-section">
-       <app-exercice></app-exercice>
+      <div routerLink="/workout">
+      <app-exercice aria-readonly="true"></app-exercice>
+      </div>
     </div>
   </div>
-
 </div>
 

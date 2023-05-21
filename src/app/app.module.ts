@@ -55,6 +55,9 @@ import {MatStepperModule} from "@angular/material/stepper";
 import { WeeklyExerciseCardComponent } from './weekly-exercise-card/weekly-exercise-card.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {environment} from "../environments/environment";
+import { ExerciseTargetModalComponent } from './exercice/exercise-target-modal/exercise-target-modal.component';
+import { FilterProfilePipe } from './main/filter-profile.pipe';
+import {NgParticlesModule} from "ng-particles";
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,44 +80,47 @@ import {environment} from "../environments/environment";
     RapportComponent,
     WeeklyExerciseCardComponent,
     UserProfileComponent,
+    ExerciseTargetModalComponent,
+    FilterProfilePipe,
 
   ],
-    imports: [
-      CarouselModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatButtonModule,
-        ReactiveFormsModule,
-        MatToolbarModule,
-        MatMenuModule,
-        RoutingModule,
-        MatSidenavModule,
-        MatListModule,
-        MatLineModule,
-        FlexModule,
-        FlexLayoutModule,
-        MatBottomSheetModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatSelectModule,
-        MatCheckboxModule,
-        MatCarouselModule,
-        MatDividerModule,
-        HttpClientModule,
-        FormsModule,
-        MatRadioModule,
-        GoogleSigninButtonModule,
-        MatDialogModule,
-        MatStepperModule,
-        NgOptimizedImage,
-        MatExpansionModule,
-        MatGridListModule,
+  imports: [
+    CarouselModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatMenuModule,
+    RoutingModule,
+    MatSidenavModule,
+    MatListModule,
+    MatLineModule,
+    FlexModule,
+    FlexLayoutModule,
+    MatBottomSheetModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatCarouselModule,
+    MatDividerModule,
+    HttpClientModule,
+    FormsModule,
+    MatRadioModule,
+    GoogleSigninButtonModule,
+    MatDialogModule,
+    MatStepperModule,
+    NgOptimizedImage,
+    MatExpansionModule,
+    MatGridListModule,
+    NgParticlesModule,
 
-    ],
+  ],
   providers: [MatDatepickerModule,
   {
       provide: 'SocialAuthServiceConfig',
@@ -134,6 +140,7 @@ import {environment} from "../environments/environment";
       } as SocialAuthServiceConfig,
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [FilterProfilePipe]
 })
 export class AppModule { }

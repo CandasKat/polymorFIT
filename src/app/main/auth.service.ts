@@ -6,6 +6,7 @@ import {User, UserProfile} from "../model/user.model";
 import {HttpClient} from "@angular/common/http";
 import {SocialAuthService} from "@abacritt/angularx-social-login";
 import {Workouts} from "../model/exercice.model";
+import {WorkoutService} from "../exercice/workout.service";
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,8 @@ export class AuthService {
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
   constructor(private socialAuthService: SocialAuthService,
               public bottomSheet: MatBottomSheet,
-              private http: HttpClient) { }
+              private http: HttpClient,
+             ) { }
 
   setLoggedInStatus(status: boolean){
     this.isLoggedInSubject.next(status);

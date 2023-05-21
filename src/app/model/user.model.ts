@@ -14,6 +14,7 @@ export interface UserProfile {
   height?: string;
   level?: string;
   image?: string | null;
+  exerciseTarget?: string | null;
 }
 
 export interface Weight {

@@ -1,12 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../main/auth.service";
 import {Weight} from "../model/user.model";
-
-interface DayData {
-  date: string;
-  exerciseTime: number;
-  isExercised: boolean;
-}
+import {DayData} from "../model/exercice.model";
 
 @Component({
   selector: 'app-rapport',

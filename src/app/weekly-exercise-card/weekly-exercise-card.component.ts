@@ -9,5 +9,6 @@ export class WeeklyExerciseCardComponent {
   @Input() day: string | undefined | null;
   @Input() exerciseTime: number | undefined | null;
   @Input() isExercised: boolean | undefined | null;
-
+  @Input() startTime: string | undefined | null;
+  @Input() endTime: string | undefined | null;
 }

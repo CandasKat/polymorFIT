@@ -19,3 +19,11 @@ export interface Workouts{
   id?: number,
   caloriesBurned: number
 }
+
+export interface DayData {
+  date: string;
+  exerciseTime: number;
+  isExercised: boolean;
+  startTime?: string;
+  endTime?: string
+}
