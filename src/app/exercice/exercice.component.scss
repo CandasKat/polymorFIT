@@ -8,8 +8,18 @@
 .exercise-details{
   flex: 1;
   text-align: center;
+  font-size: x-large;
+  margin: 2% 2%;
+}
+
+.exercise-t{
+  color: gray;
+}
+
+.space{
+  margin: 2% 2%;
   font-size: xx-large;
-  margin: 2%;
+  align-items: center;
 }
 
 .hidden {
@@ -76,16 +86,19 @@ mat-toolbar {
   justify-content: space-between;
   background-color: white;
   padding: 4%;
+  position: relative;
 }
 
 .separator {
-  margin: 0 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: xx-large;
 }
 
 .exercise-time {
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 20%;
   font-size: large;
   color: grey;
 }
@@ -95,6 +108,7 @@ mat-toolbar {
   margin-right: auto;
   font-size: x-large;
   white-space: nowrap;
+  max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
 }

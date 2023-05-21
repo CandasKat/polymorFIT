@@ -107,7 +107,6 @@ export class ExerciceComponent implements OnInit{
     this.showFilterList = false;
   }
 
-
   getExercicesListbyType(){
     // Clear the previous list
     this.exercicesProgramList = [];
@@ -125,6 +124,7 @@ export class ExerciceComponent implements OnInit{
       })
     }
   }
+
 downloadJsonData() {
     this.workoutService.getExercicesDB().subscribe((data) => {
       const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
