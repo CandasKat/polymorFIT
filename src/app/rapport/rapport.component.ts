@@ -36,6 +36,9 @@ export class RapportComponent implements OnInit {
           this.pastWeight = this.userWeights[this.userWeights.length - 2].value;
           this.currentWeight = this.userWeights[this.userWeights.length - 1].value;
         }
+        else {
+          this.currentWeight = this.userWeights.value
+        }
 
         let currentDate = new Date();
         for (let i = 0; i < 7; i++) {
