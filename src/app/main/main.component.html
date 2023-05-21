@@ -93,24 +93,7 @@
 
 
     <div class="workout-section">
-      <h2 class="section-title mat-h2">Workouts</h2>
-      <div class="workouts-container">
-        <div *ngFor="let workout of workoutList">
-
-          <mat-card class="workout-card">
-            <mat-card-content class="workout-content">
-              <mat-icon class="monogram">bookmark_border</mat-icon>
-              <div class="text">
-                <span class="workout-type">{{ workout.type }}</span>
-                <span class="separator">|</span>
-                <span class="workout-time">{{ workout.time }}</span>
-              </div>
-              <mat-icon class="media"></mat-icon>
-            </mat-card-content>
-          </mat-card>
-
-        </div>
-      </div>
+       <app-exercice></app-exercice>
     </div>
   </div>
 

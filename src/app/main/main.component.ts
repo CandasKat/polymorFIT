@@ -45,8 +45,6 @@ export class MainComponent implements AfterViewInit, OnDestroy {
   ngOnInit() {
     this.workoutList = [
       {type: 'Cardio', time: '20 min'},
-      {type: 'Strength Training', time: '45 min'},
-      {type: 'Yoga', time: '30 min'},
       {type: 'Back', time: '30 min'},
       {type: 'Chest', time: '40 min'},
       {type: 'Lower Arms', time: '25 min'},
@@ -59,13 +57,13 @@ export class MainComponent implements AfterViewInit, OnDestroy {
     ];
 
     this.weekList = [
-      { day: 'Mon.', time: '07h00 - 07h30', workoutType: this.workoutList[11]?.type },
+      { day: 'Mon.', time: '07h00 - 07h30', workoutType: this.workoutList[9]?.type },
       { day: 'Tue.', time: '12h30 - 13h00', workoutType: this.workoutList[1]?.type },
-      { day: 'Wed.', time: '18h00 - 18h30', workoutType: this.workoutList[2]?.type },
-      { day: 'Thu.', time: '07h30 - 08h00', workoutType: this.workoutList[3]?.type },
+      { day: 'Wed.', time: '18h00 - 18h30', workoutType: this.workoutList[0]?.type },
+      { day: 'Thu.', time: '07h30 - 08h00', workoutType: this.workoutList[9]?.type },
       { day: 'Fri.', time: '12h00 - 12h30', workoutType: this.workoutList[1]?.type },
       { day: 'Sat.', time: '09h00 - 09h30', workoutType: this.workoutList[2]?.type },
-      { day: 'Sun.', time: '16h00 - 16h30', workoutType: this.workoutList[3]?.type }
+      { day: 'Sun.', time: '16h00 - 16h30', workoutType: this.workoutList[0]?.type }
     ];
 
   }

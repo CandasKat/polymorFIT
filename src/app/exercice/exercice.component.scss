@@ -1,36 +1,3 @@
-.toolbar-title {
-  flex: 1;
-  text-align: center;
-  font-size: xx-large;
-  margin: 3%;
-}
-
-.exercise-details{
-  flex: 1;
-  text-align: center;
-  font-size: x-large;
-  margin: 2% 2%;
-}
-
-.exercise-t{
-  color: gray
-}
-
-.space{
-  margin: 2% 2%;
-  font-size: xx-large;
-  align-items: center;
-}
-
-.hidden {
-  display: none;
-}
-
-
-mat-toolbar {
-  background-color: initial;
-}
-
 .search-container {
   display: flex;
   align-items: center;
@@ -75,156 +42,105 @@ mat-toolbar {
 }
 
 .exercise-card {
-  padding: 1.5%;
-  margin: 5%;
-  border-radius: 30px;
-}
-
-.exercise-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  padding: 4%;
-  position: relative;
-}
-
-.separator {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: xx-large;
-}
-
-.exercise-time {
-  margin-left: auto;
-  margin-right: 20%;
-  font-size: large;
-  color: grey;
-}
-
-.exercise-type {
-  margin-left: auto;
-  margin-right: auto;
-  font-size: x-large;
-  white-space: nowrap;
-  max-width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.exercise-icon{
-  transform: scale(2);
-}
-
-.additional-icon {
-transform: scale(1.5);
-}
-
-
-/* Responsive Styles */
-@media (max-width: 600px) {
-  .exercise-row {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    font-size: 50%;
-  }
-
-
-  .separator,
-  .exercise-time {
-    flex-basis: 100%;
-    margin-top: 5px;
-    font-size: xx-large;
-    text-align: center;
-  }
-}
-
-
-
-.selected-exercise-card {
   padding: 5%;
   margin: 5%;
   border-radius: 30px;
 }
 
-.exercise-row {
-  display: flex;
+.home-container {
+  display: grid;
+  grid-template-rows: 1fr auto; /* Divide the container into two rows, the second row for the button container */
   align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.bookmark-icon{
-  transform: scale(2);
-}
-
-.run-icon {
-  transform: scale(1.5);
-}
-
-
-.separator {
-  margin: 0 10px;
-  font-size: xx-large;
-}
-
-.bookmark-icon {
-  margin-right: 10px;
-}
-
-
-
-  .start-button {
-    position: fixed;
-    right: 12%;
-    top: 85%;
-    background: linear-gradient(0deg, rgba(103, 80, 164, 0.11), rgba(103, 80, 164, 0.11)), #FFFBFF;
-    box-shadow: 4px 8px 3px rgba(0, 0, 0, 0.15), 1px 3px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    scale: 3;
+.workout-section {
+  .section-title {
+    margin-bottom: 10px;
   }
 
+  .workouts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Adjust the gap value as needed */
+  }
 
-.button-container {
-  align-items: flex-end;
+  .workout-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    filter: drop-shadow(0px 4px 4px rgba(103, 80, 164, 0.4));
+    overflow: hidden;
+    margin-bottom: 10px; /* Adjust the margin-bottom value as needed */
+  }
+
+  .workout-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    flex: 1;
+    width: 328px;
+    height: 73px;
+  }
+
+  .monogram {
+    flex-shrink: 0;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+    flex-grow: 1;
+  }
+
+  .media {
+    width: 64px;
+    height: 58px;
+    flex-shrink: 0;
+    background-image: url('../../assets/images/cardio.png');
+    background-size: cover;
+    background-position: center;
+  }
 }
 
-.mat-select-arrow{
+.button-container {
+  display: flex;
+  justify-self: end; /* Align the button container to the right side of its grid cell */
+  margin: 20px; /* Adjust the margin as needed */
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 1;
+}
+
+.start-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  scale: 3;
+  background: linear-gradient(0deg, rgba(103, 80, 164, 0.11), rgba(103, 80, 164, 0.11)), #FFFBFF;
+  /* M3/Elevation Light/3 */
+  box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 10px;
+
+  @media (max-width: 600px) {
+    font-size: medium;
+  }
+}
+
+.mat-select-arrow {
   color: #6750a4;
 }
 
-
-@media (min-width: 800px) {
-  .toolbar-title {
-    font-size: xxx-large;
-  }
-
-  .exercise-details {
-    font-size: 3rem;
-  }
-
-
-  .exercise-icon,
-  .additional-icon,
-  .run-icon {
-    transform: scale(3);
-  }
-
-  .bookmark-icon{
-    transform: scale(1.5);
-  }
-
-  .start-button {
-    font-size: 2rem;
-    transform: scale(2);
-    margin-right: 15%;
-  }
-
-  .separator {
-    font-size: 4rem;
-  }
-
-  .exercise-time {
-    font-size: 1.5rem;
-  }
-
-}

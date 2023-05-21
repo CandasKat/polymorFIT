@@ -1,58 +1,65 @@
-<div *ngIf="!selectedExerciseType" class="toolbar-title">Workouts</div>
+<div *ngIf="!selectedExerciseType" class="section-title mat-h2">Workouts</div>
 
-<div *ngIf="selectedExerciseType" class="exercise-details">
-  <span class="exercise-name">{{ selectedExerciseType }}</span>
-  <span class="space">|</span>
-  <span class="exercise-t">45 min</span>
-</div>
+<!--<div *ngIf="selectedExerciseType" class="exercise-details">
+  <span class="exercise-type">{{ selectedExerciseType }}</span>
+  <span class="separator">|</span>
+  <span class="exercise-time">45 min</span>
+</div>-->
+<div class="home-container">
+  <div class="workout-section">
 
-
-
-<div class="search-container" *ngIf="!selectedExerciseType">
-  <div class="filter-container">
-    <mat-icon class="filter-icon" (click)="toggleFilterList()">filter_alt</mat-icon>
-    <div *ngIf="showFilterList" class="filter-list">
-      <div *ngFor="let type of typeExercices" (click)="getExercicesWithNoEquipement(type.value)">
-        {{ type.viewValue }}
+    <div class="search-container" *ngIf="!selectedExerciseType">
+      <div class="filter-container">
+        <mat-icon class="filter-icon" (click)="toggleFilterList()">filter_alt</mat-icon>
+        <div *ngIf="showFilterList" class="filter-list">
+          <div *ngFor="let type of typeExercices" (click)="getExercicesWithNoEquipement(type.value)">
+            {{ type.viewValue }}
+          </div>
+        </div>
       </div>
+      <mat-icon class="search-icon" (click)="toggleSearch()">search</mat-icon>
+      <input type="text" [(ngModel)]="searchQuery" [hidden]="!isSearchOpen" (blur)="closeSearch()"/>
     </div>
-  </div>
-  <mat-icon class="search-icon" (click)="toggleSearch()">search</mat-icon>
-  <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="filterExercises()" [hidden]="!isSearchOpen" (blur)="closeSearch()" />
-</div>
 
     <div *ngIf="!selectedExerciseType">
-      <div *ngFor="let type of filteredExercises" (click)="getExercicesWithNoEquipement(type.value)">
-        <mat-card class="exercise-card">
-          <div class="exercise-row">
-            <mat-icon class="exercise-icon">bookmark_border</mat-icon>
-            <span class="exercise-type">{{ type.viewValue }}</span>
-            <span class="separator">|</span>
-            <span class="exercise-time">{{ type.time  }} mins</span>
-            <img [src]="svgIconPath" class="additional-icon" alt="SVG Icon">
-          </div>
-        </mat-card>
+      <div class="workout-container">
+        <div *ngFor="let type of typeExercices" (click)="getExercicesWithNoEquipement(type.value)">
+          <mat-card class="workout-card">
+            <mat-card-content class="workout-content">
+              <mat-icon class="monogram">bookmark_border</mat-icon>
+              <div class="text">
+                <span class="workout-type">{{ type.viewValue }}</span>
+                <span class="separator">|</span>
+                <span class="workout-time">{{ type.time }}</span>
+              </div>
+              <mat-icon class="media"></mat-icon>
+            </mat-card-content>
+          </mat-card>
+        </div>
       </div>
-      <div *ngIf="noExercisesFound">No exercises found</div>
     </div>
 
-<div [ngSwitch]="selectedExerciseType">
-  <div *ngSwitchDefault>
-    <div *ngFor="let exercise of exercicesList">
-      <mat-card class="exercise-card">
-        <div class="exercise-row">
-          <mat-icon class="bookmark-icon">bookmark_border</mat-icon>
-          <mat-card-title class="exercise-type">{{ exercise.name }}</mat-card-title>
-          <span class="separator">|</span>
-          <p class="exercise-time">{{ exercise.time }} mins</p>
-          <img [src]="svgIconPath" class="run-icon" alt="SVG Icon">
+    <div [ngSwitch]="selectedExerciseType">
+      <div *ngSwitchDefault class="workouts-container">
+        <div *ngFor="let exercise of exercicesList">
+          <mat-card class="workout-card">
+            <mat-card-content class="workout-content">
+              <mat-icon class="monogram">bookmark_border</mat-icon>
+              <div class="text">
+                <span class="workout-type">{{ exercise.name }}</span>
+                <span class="separator">|</span>
+                <span class="workout-time">{{ exercise.time }}</span>
+              </div>
+              <mat-icon class="media"></mat-icon>
+            </mat-card-content>
+          </mat-card>
         </div>
-      </mat-card>
-    </div>
-    <div class="button-container" *ngIf="selectedExerciseType">
-      <button class="start-button" mat-button (click)="startExercice()">
-        <mat-icon class="mat-select-arrow">play_arrow</mat-icon>
-      </button>
+      </div>
+      <div class="button-container"  *ngIf="selectedExerciseType">
+        <button class="start-button" mat-button (click)="startExercice()">
+          <mat-icon class="mat-select-arrow">play_arrow</mat-icon>
+        </button>
+      </div>
     </div>
   </div>
 </div>
