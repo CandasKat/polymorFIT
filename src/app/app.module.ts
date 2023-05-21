@@ -54,6 +54,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MatStepperModule} from "@angular/material/stepper";
 import { WeeklyExerciseCardComponent } from './weekly-exercise-card/weekly-exercise-card.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import {environment} from "../environments/environment";
 @NgModule({
   declarations: [
     AppComponent,
@@ -123,7 +124,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '724653378617-00kp4ave75skimric5bvqn3o3rr66pto.apps.googleusercontent.com'
+              environment.GOOGLE_API_KEY
             )
           }
         ],
