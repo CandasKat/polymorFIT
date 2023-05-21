@@ -54,14 +54,6 @@ export class ExerciceComponent implements OnInit{
   }
 
 
-  handleExerciseClick(exercise: Exercice): void {
-    this.selectedExercise = exercise;
-  }
-
-  closeExerciseCard(): void {
-    this.selectedExercise = undefined;
-  }
-
   // hides the filter list
   showFilterList: boolean = false;
   filterTimeout: any;

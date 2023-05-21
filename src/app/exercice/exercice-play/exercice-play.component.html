@@ -11,6 +11,9 @@
     </div>
     <div class="exercise-details">
       <p class="time-text">Time: {{ currentExercise.time }}</p>
+      <p>{{ formatTime(elapsedTime) }}</p>
+      <p>Repetitions: {{ currentExercise.repetition }}</p>
+      <p >Target: {{ currentExercise.target }}</p>
       <mat-card-actions>
         <div class="icon-container">
           <button mat-icon-button (click)="previousExercise()">
@@ -24,6 +27,7 @@
           </button>
         </div>
       </mat-card-actions>
+
     </div>
   </div>
 </div>

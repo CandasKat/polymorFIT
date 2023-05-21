@@ -9,7 +9,7 @@
   flex: 1;
   text-align: center;
   font-size: xx-large;
-  margin: 3%;
+  margin: 2%;
 }
 
 .hidden {
@@ -65,7 +65,7 @@ mat-toolbar {
 }
 
 .exercise-card {
-  padding: 5%;
+  padding: 1.5%;
   margin: 5%;
   border-radius: 30px;
 }
@@ -99,19 +99,14 @@ mat-toolbar {
   text-overflow: ellipsis;
 }
 
-.exercise-icon,
-.additional-icon {
-transform: scale(2);
+.exercise-icon{
+  transform: scale(2);
 }
-
-.exercise-icon {
-  margin-right: 10px;
-}
-
 
 .additional-icon {
-  margin-left: 10px;
+transform: scale(1.5);
 }
+
 
 /* Responsive Styles */
 @media (max-width: 600px) {
@@ -144,10 +139,14 @@ transform: scale(2);
   align-items: center;
 }
 
-.bookmark-icon,
-.run-icon {
+.bookmark-icon{
   transform: scale(2);
 }
+
+.run-icon {
+  transform: scale(1.5);
+}
+
 
 .separator {
   margin: 0 10px;
@@ -158,26 +157,18 @@ transform: scale(2);
   margin-right: 10px;
 }
 
-.run-icon{
-margin-left: 10px;
 
-}
 
-.start-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  font-size: large;
-  scale: 3;
-  float: right;
-  margin-top: -15%;
-  margin-right: 10%;
-  background: linear-gradient(0deg, rgba(103, 80, 164, 0.11), rgba(103, 80, 164, 0.11)), #FFFBFF;
-  /* M3/Elevation Light/3 */
+  .start-button {
+    position: fixed;
+    right: 12%;
+    top: 85%;
+    background: linear-gradient(0deg, rgba(103, 80, 164, 0.11), rgba(103, 80, 164, 0.11)), #FFFBFF;
+    box-shadow: 4px 8px 3px rgba(0, 0, 0, 0.15), 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    scale: 3;
+  }
 
-  box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-}
 
 .button-container {
   align-items: flex-end;
@@ -200,9 +191,12 @@ margin-left: 10px;
 
   .exercise-icon,
   .additional-icon,
-  .bookmark-icon,
   .run-icon {
     transform: scale(3);
+  }
+
+  .bookmark-icon{
+    transform: scale(1.5);
   }
 
   .start-button {

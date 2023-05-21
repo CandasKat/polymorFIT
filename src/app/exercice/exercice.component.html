@@ -36,37 +36,20 @@
       <div *ngIf="noExercisesFound">No exercises found</div>
     </div>
 
-
-    <!--  <div *ngIf="!selectedExerciseType">
-        <div *ngFor="let type of typeExercices" (click)="getExercicesWithNoEquipement(type.value)">
-          <mat-card>
-            <i class="exercise-icon fas fa-dumbbell"></i>
-            <mat-card-title>{{ type.viewValue }}</mat-card-title>
-            <span class="separator">|</span>
-            <span class="exercise-time"></span>
-            <i class="additional-icon fas fa-info-circle"></i>
-          </mat-card>
-        </div>
-      </div>-->
-
 <div [ngSwitch]="selectedExerciseType">
   <div *ngSwitchDefault>
     <div *ngFor="let exercise of exercicesList">
-      <mat-card class="selected-exercise-card">
-        <mat-card-content class="exercise-content">
-          <div class="exercise-row">
-            <mat-icon class="bookmark-icon">bookmark_border</mat-icon>
-            <mat-card-title class="exercise-type">{{ exercise.name }}</mat-card-title>
-            <span class="separator">|</span>
-            <p class="exercise-time">Time: {{ exercise.time }}</p>
-            <img [src]="svgIconPath" class="run-icon" alt="SVG Icon">
-          </div>
-        </mat-card-content>
+      <mat-card class="exercise-card">
+        <div class="exercise-row">
+          <mat-icon class="bookmark-icon">bookmark_border</mat-icon>
+          <mat-card-title class="exercise-type">{{ exercise.name }}</mat-card-title>
+          <span class="separator">|</span>
+          <p class="exercise-time">Time: {{ exercise.time }}</p>
+          <img [src]="svgIconPath" class="run-icon" alt="SVG Icon">
+        </div>
       </mat-card>
     </div>
-
-
-    <div class="button-container">
+    <div class="button-container" *ngIf="selectedExerciseType">
       <button class="start-button" mat-button (click)="startExercice()">
         <mat-icon class="mat-select-arrow">play_arrow</mat-icon>
       </button>

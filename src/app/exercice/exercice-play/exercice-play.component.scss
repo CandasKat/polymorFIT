@@ -14,6 +14,18 @@
   width: 80%;
 }
 
+.mat-card-actions{
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Adjust the value as needed to control the spacing between icons */
+}
+
+
 .header {
   display: flex;
   align-items: center;
@@ -47,8 +59,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   border-radius: 30px;
 }
 
@@ -59,7 +71,7 @@
 }
 
 .exercise-details {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .time-text {
@@ -67,12 +79,11 @@
   margin-top: 3%;
 }
 
-.button-1,
-.button-2,
-.button-3{
-  transform: scale(2);
-  padding: 10px 20px;
+.target-text {
+  margin-top: 3%;
+  margin-bottom: 1%;
 }
+
 
 .icon-container {
   display: flex;
@@ -83,10 +94,6 @@
 
 
 @media screen and (min-width: 800px) {
-  .page-container {
-    font-size: 2em;
-  }
-
   .icon-container {
     display: flex;
     transform: scale(3);
@@ -99,13 +106,10 @@
     margin-bottom: 1%;
   }
 
-  .image-container {
-    width: 400px;
-    height: 400px;
-  }
-
   .time-text {
     font-size: xx-large;
   }
+
+
 
 }
