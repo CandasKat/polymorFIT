@@ -35,8 +35,11 @@
     </mat-form-field>
   </div>
 <div>
-    <mat-checkbox>Remember me</mat-checkbox>
+    <mat-checkbox (change)="rememberMeChecked = $event.checked">Remember me</mat-checkbox>
 </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{errorMessage}}
+  </div>
 
   <div><app-login-signup-buttons [button_name]="'Login'" [isDisabled]="false"></app-login-signup-buttons></div>
 </form>
