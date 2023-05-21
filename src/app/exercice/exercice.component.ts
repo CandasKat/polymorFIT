@@ -38,6 +38,7 @@ export class ExerciceComponent implements OnInit{
     // create an exercices data by equipment
     // this.getExercicesWithNoEquipement()
     this.filteredExercises = this.typeExercices;
+    this.setExerciseTimeBasedOnUserLevel();
   }
 
   filterExercises(): void {
@@ -70,16 +71,16 @@ export class ExerciceComponent implements OnInit{
   }
 
   typeExercices = [
-    {value: "cardio", viewValue: "Cardio", time: "30"},
-    {value: "back", viewValue: "Back", time: "45"},
-    {value: "chest", viewValue: "Chest", time: "30"},
-    {value: "lower arms", viewValue: "Lower arms", time: "45"},
-    {value: "lower legs", viewValue: "Lower legs", time: "45"},
-    {value: "neck", viewValue: "Neck", time: "30"},
-    {value: "shoulders", viewValue: "Shoulders", time: "30"},
-    {value: "upper arms", viewValue: "Upper arms", time: "45"},
-    {value: "upper legs", viewValue: "Upper legs", time: "30"},
-    {value: "waist", viewValue: "Waist",time: "30"}
+    {value: "cardio", viewValue: "Cardio", time: 0},
+    {value: "back", viewValue: "Back", time: 0},
+    {value: "chest", viewValue: "Chest", time: ""},
+    {value: "lower arms", viewValue: "Lower arms", time: 0},
+    {value: "lower legs", viewValue: "Lower legs", time: 0},
+    {value: "neck", viewValue: "Neck", time: 0},
+    {value: "shoulders", viewValue: "Shoulders", time: 0},
+    {value: "upper arms", viewValue: "Upper arms", time: 0},
+    {value: "upper legs", viewValue: "Upper legs", time: 0},
+    {value: "waist", viewValue: "Waist", time: 0}
   ];
 
   toggleSearch(): void {
@@ -138,6 +139,25 @@ downloadJsonData() {
     });
   }
 
+  setExerciseTimeBasedOnUserLevel() {
+    let time: number;
+    switch (this.userDifficultyLevel) {
+      case 'beginner':
+        time = 30;
+        break;
+      case 'intermediate':
+        time = 45;
+        break;
+      case 'experimented':
+        time = 60;
+        break;
+      default:
+        time = 0;
+    }
+    for (let typ of this.filteredExercises) {
+      typ.time = time;
+    }
+  }
 
   getExercicesWithNoEquipement(exType: string | any){
     this.selectedExerciseType = exType;
@@ -165,7 +185,7 @@ downloadJsonData() {
         this.exercicesList = this.exercicesList.slice(0, exerciceSum);
         for (let exr of this.exercicesList){
           exr.repetition = repetition;
-          exr.time = time;
+          exr.time = time / exerciceSum;
         }
         this.workoutService.setExercisePlaylist(this.exercicesList);
         console.log(this.exercicesList);
@@ -178,7 +198,7 @@ downloadJsonData() {
         this.exercicesList = this.exercicesList.slice(0, exerciceSum);
         for (let exr of this.exercicesList){
           exr.repetition = repetition;
-          exr.time = time;
+          exr.time = time / exerciceSum;
         }
         this.workoutService.setExercisePlaylist(this.exercicesList);
 
@@ -192,7 +212,7 @@ downloadJsonData() {
         this.exercicesList = this.exercicesList.slice(0, exerciceSum);
         for (let exr of this.exercicesList){
           exr.repetition = repetition;
-          exr.time= time;
+          exr.time = time / exerciceSum;
         }
         this.workoutService.setExercisePlaylist(this.exercicesList);
         console.log(this.exercicesList);
